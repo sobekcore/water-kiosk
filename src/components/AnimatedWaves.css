@@ -1,0 +1,15 @@
+.waves {
+  width: 200%;
+  margin-bottom: -5px;
+  animation: 2s linear infinite forwards swell;
+}
+
+@keyframes swell {
+  0% {
+    transform: translateX(-50%);
+  }
+
+  100% {
+    transform: translateX(0%);
+  }
+}
