@@ -1,0 +1,19 @@
+/**
+ * TODO: For now @screen directive does not support max-* syntax
+ *  https://github.com/tailwindlabs/tailwindcss/issues/9908
+ */
+@media not all and (min-width: theme('screens.xs')) {
+  .ingredients {
+    grid-template-columns: 1fr !important;
+    grid-template-rows: 1fr !important;
+  }
+
+  .ingredients .ingredient:not([data-id]),
+  .ingredients .ingredient-padding {
+    display: none;
+  }
+
+  .ingredients .ingredient-padding.base {
+    display: block;
+  }
+}
