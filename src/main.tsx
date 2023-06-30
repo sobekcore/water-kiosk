@@ -2,7 +2,8 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import Home from '@/views/Home.tsx';
-import Customize from '@/views/Customize.tsx';
+import CustomizeIngredient from '@/views/CustomizeIngredient.tsx';
+import CustomizeEnergy from '@/views/CustomizeEnergy.tsx';
 import '@/styles/styles.css';
 
 const router = createBrowserRouter([
@@ -12,7 +13,11 @@ const router = createBrowserRouter([
   },
   {
     path: '/customize',
-    Component: Customize,
+    Component: CustomizeIngredient,
+  },
+  {
+    path: '/customize/:ingredient/energy',
+    Component: CustomizeEnergy,
   },
 ]);
 

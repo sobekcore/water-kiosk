@@ -1,10 +1,12 @@
 import { ButtonHTMLAttributes } from 'react';
 import clsx from 'clsx';
+import '@/components/Button/Button.css';
 
 const sizes: Record<string, string> = {
-  sm: 'px-4 py-2',
-  md: 'px-12 py-3',
-  lg: 'px-24 py-4',
+  fab: 'size-fab',
+  sm: 'size-sm',
+  md: 'size-md',
+  lg: 'size-lg',
 };
 
 interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
@@ -15,9 +17,9 @@ export default function Button({ size = 'md', className, ...props }: ButtonProps
   return (
     <button
       className={clsx(
-        'rounded-full bg-white text-xl text-primary drop-shadow-lg transition-[transform,filter] hocus:-translate-y-1 hocus:drop-shadow-2xl',
-        className,
+        'rounded-full text-xl text-primary drop-shadow-lg transition-[filter] hocus:drop-shadow-xl',
         sizes[size],
+        className,
       )}
       {...props}
     >

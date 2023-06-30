@@ -4,16 +4,15 @@
  */
 @media not all and (min-width: theme('screens.xs')) {
   .ingredients {
-    grid-template-columns: 1fr !important;
-    grid-template-rows: 1fr !important;
+    @apply !grid-cols-1 !grid-rows-1;
   }
 
   .ingredients .ingredient:not([data-id]),
   .ingredients .ingredient-padding {
-    display: none;
+    @apply hidden;
   }
 
   .ingredients .ingredient-padding.base {
-    display: block;
+    @apply block;
   }
 }

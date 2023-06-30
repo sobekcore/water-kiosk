@@ -3,9 +3,9 @@ import { Ingredient } from '@/interfaces/ingredient.ts';
 import Logo from '@/components/Logo.tsx';
 import EvenGrid from '@/components/EvenGrid.tsx';
 import Ingredients from '@/components/Ingredients/Ingredients.tsx';
-import '@/views/Customize.css';
+import '@/views/CustomizeIngredient.css';
 
-export default function Customize() {
+export default function CustomizeIngredient() {
   return (
     <div className="flex min-h-dynamic-screen flex-col">
       <EvenGrid<Ingredient>
