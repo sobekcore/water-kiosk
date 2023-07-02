@@ -5,7 +5,7 @@ interface LogoProps extends HTMLAttributes<HTMLDivElement> {}
 export default function Logo({ ...props }: LogoProps) {
   return (
     <div {...props}>
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 255.1 255.1">
+      <svg viewBox="0 0 255.1 255.1">
         <circle fill="#27a9e1" cx="127.6" cy="127.6" r="121.6" />
         <path
           fill="#ffffff"

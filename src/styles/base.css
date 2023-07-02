@@ -4,6 +4,10 @@
   }
 
   body {
-    @apply bg-white;
+    @apply bg-white min-w-[280px];
+  }
+
+  svg.icon {
+    @apply fill-[currentColor] w-[1em] h-[1em];
   }
 }

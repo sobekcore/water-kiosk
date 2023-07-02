@@ -14,13 +14,17 @@ export default function Ingredient({ id, title, image, cups, bgClassName, textCl
   const navigate: NavigateFunction = useNavigate();
 
   const handleButtonClick = (): void => {
-    navigate(`/customize/${id}/energy`);
+    navigate('/customize/energy');
   };
 
   return (
     <button
       data-id={id}
-      className={clsx('ingredient flex flex-col items-center justify-center p-4', bgClassName)}
+      className={clsx(
+        'ingredient flex flex-col items-center justify-center p-4',
+        'focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-inset focus-visible:ring-primary',
+        bgClassName,
+      )}
       onClick={handleButtonClick}
     >
       <img src={image} alt={title} />

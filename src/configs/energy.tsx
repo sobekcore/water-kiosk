@@ -1,10 +1,12 @@
 import { LevelSelectionStep } from '@/interfaces/level-selection.ts';
+import Bolt from '@/components/Icons/Bolt.tsx';
 
 export const INITIAL_VALUE: number = 1;
 
 export const ENERGY: LevelSelectionStep<number>[] = [
   {
     label: '1X',
+    icon: <Bolt />,
     value: 1,
     color: {
       text: 'text-green',
@@ -14,6 +16,7 @@ export const ENERGY: LevelSelectionStep<number>[] = [
   },
   {
     label: '2X',
+    icon: <Bolt />,
     value: 2,
     color: {
       text: 'text-orange',
@@ -23,6 +26,7 @@ export const ENERGY: LevelSelectionStep<number>[] = [
   },
   {
     label: '3X',
+    icon: <Bolt />,
     value: 3,
     color: {
       text: 'text-red',

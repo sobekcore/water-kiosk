@@ -17,7 +17,9 @@ export default function Button({ size = 'md', className, ...props }: ButtonProps
   return (
     <button
       className={clsx(
-        'rounded-full text-xl text-primary drop-shadow-lg transition-[filter] hocus:drop-shadow-xl',
+        'rounded-full text-xl text-primary drop-shadow-lg transition-[filter]',
+        'focus-visible:outline focus-visible:outline-4 focus-visible:outline-offset-4 focus-visible:outline-primary',
+        'hocus:drop-shadow-xl',
         sizes[size],
         className,
       )}

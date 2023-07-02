@@ -1,7 +1,7 @@
 import { INGREDIENTS, NULL_INGREDIENT, NUMBER_OF_COLUMNS } from '@/configs/ingredients.ts';
 import { Ingredient } from '@/interfaces/ingredient.ts';
-import Logo from '@/components/Logo.tsx';
-import EvenGrid from '@/components/EvenGrid.tsx';
+import Logo from '@/components/Svg/Logo.tsx';
+import EvenGrid from '@/components/EvenGrid/EvenGrid.tsx';
 import Ingredients from '@/components/Ingredients/Ingredients.tsx';
 import '@/views/CustomizeIngredient.css';
 

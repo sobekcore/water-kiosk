@@ -1,27 +1,25 @@
 import { NavigateFunction, useNavigate } from 'react-router-dom';
-import { ENERGY, INITIAL_VALUE } from '@/configs/energy.tsx';
+import { TEMPERATURE, INITIAL_VALUE } from '@/configs/temperature.tsx';
 import LevelSelectionForm from '@/components/LevelSelection/LevelSelectionForm.tsx';
 
-export default function CustomizeEnergy() {
+export function CustomizeTemperature() {
   const navigate: NavigateFunction = useNavigate();
 
   const handleClickBack = (): void => {
-    navigate('/customize/ingredient');
+    navigate('/customize/energy');
   };
 
-  const handleClickNext = (/* value: number */): void => {
-    // TODO: Save value from parameter to store
-
-    navigate(`/customize/temperature`);
+  const handleClickNext = (): void => {
+    // TODO: Redirect to next route while waiting for water
   };
 
   return (
     <div className="flex min-h-dynamic-screen">
-      <LevelSelectionForm<number>
-        steps={ENERGY}
+      <LevelSelectionForm<string>
+        steps={TEMPERATURE}
         initialValue={INITIAL_VALUE}
-        title="Need a little pep in your step?"
-        button="Add Energy"
+        title="Select your desired water temp."
+        button="Dispense"
         onClickBack={handleClickBack}
         onClickNext={handleClickNext}
       />

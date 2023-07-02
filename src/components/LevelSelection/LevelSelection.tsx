@@ -22,31 +22,38 @@ export default function LevelSelection<T>({ steps, initialValue, onChange }: Lev
   };
 
   return (
-    <div className="flex w-full justify-center">
+    <div className="flex w-full items-center justify-center">
       {steps.map((step: LevelSelectionStep<T>, index: number) => (
         <Fragment key={index}>
           {index !== 0 && (
             <div
               className={clsx(
-                'level-selection-connector mt-5 h-1.5 w-full max-w-[5rem]',
+                'level-selection-connector mb-8 h-1.5 w-full max-w-[5rem]',
                 levelSelection.getCurrentStep().color.background,
               )}
             ></div>
           )}
           <div
             className={clsx(
-              'level-selection-item flex flex-col items-center gap-y-2',
+              'level-selection-item relative flex flex-col items-center pb-8',
               step.value === levelSelection.value && 'selected',
             )}
           >
             <Button size="fab" className="bg-white" onClick={() => handleButtonClick(step.value)}>
               {step.value === levelSelection.value ? (
-                <Check className="h-4 w-4 text-green" />
+                <Check className="text-lg text-green" />
               ) : (
-                <Plus className="h-4 w-4 text-primary" />
+                <Plus className="text-lg text-primary" />
               )}
             </Button>
-            <h3 className={clsx(step.value === levelSelection.value ? 'text-secondary' : 'text-gray')}>{step.label}</h3>
+            <h3
+              className={clsx(
+                'absolute bottom-0',
+                step.value === levelSelection.value ? 'text-secondary' : 'text-gray',
+              )}
+            >
+              {step.label}
+            </h3>
           </div>
         </Fragment>
       ))}

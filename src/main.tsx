@@ -5,6 +5,7 @@ import Home from '@/views/Home.tsx';
 import CustomizeIngredient from '@/views/CustomizeIngredient.tsx';
 import CustomizeEnergy from '@/views/CustomizeEnergy.tsx';
 import '@/styles/styles.css';
+import { CustomizeTemperature } from '@/views/CustomizeTemperature.tsx';
 
 const router = createBrowserRouter([
   {
@@ -12,12 +13,16 @@ const router = createBrowserRouter([
     Component: Home,
   },
   {
-    path: '/customize',
+    path: '/customize/ingredient',
     Component: CustomizeIngredient,
   },
   {
-    path: '/customize/:ingredient/energy',
+    path: '/customize/energy',
     Component: CustomizeEnergy,
+  },
+  {
+    path: '/customize/temperature',
+    Component: CustomizeTemperature,
   },
 ]);
 

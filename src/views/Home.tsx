@@ -1,13 +1,13 @@
 import { NavigateFunction, useNavigate } from 'react-router-dom';
-import Logo from '@/components/Logo.tsx';
 import Button from '@/components/Button/Button.tsx';
-import AnimatedWaves from '@/components/AnimatedWaves/AnimatedWaves.tsx';
+import Logo from '@/components/Svg/Logo.tsx';
+import AnimatedWaves from '@/components/Svg/AnimatedWaves/AnimatedWaves.tsx';
 
 export default function Home() {
   const navigate: NavigateFunction = useNavigate();
 
   const handleButtonClick = (): void => {
-    navigate('/customize');
+    navigate('/customize/ingredient');
   };
 
   return (
@@ -18,7 +18,7 @@ export default function Home() {
         </div>
         <div className="flex h-full flex-col">
           <AnimatedWaves />
-          <div className="flex flex-grow flex-col items-center justify-end gap-8 bg-primary p-8">
+          <div className="flex flex-grow flex-col items-center justify-end gap-y-8 bg-primary p-8">
             <Button size="lg" className="bg-white" onClick={handleButtonClick}>
               Thirsty?
             </Button>
