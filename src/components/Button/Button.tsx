@@ -13,7 +13,7 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   size?: keyof typeof sizes;
 }
 
-export default function Button({ size = 'md', className, ...props }: ButtonProps) {
+export default function Button({ size = 'md', className, children, ...props }: ButtonProps) {
   return (
     <button
       className={clsx(
@@ -25,7 +25,7 @@ export default function Button({ size = 'md', className, ...props }: ButtonProps
       )}
       {...props}
     >
-      {props.children}
+      {children}
     </button>
   );
 }

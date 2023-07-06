@@ -6,10 +6,19 @@ interface IngredientsProps {
   ingredients: Ingredient[];
   columns: number;
   paddingBottom?: boolean;
+  onClick(ingredient: string): void;
 }
 
-export default function Ingredients({ ingredients, columns, paddingBottom = false }: IngredientsProps) {
+export default function Ingredients({ ingredients, columns, paddingBottom = false, onClick }: IngredientsProps) {
   let hasBaseClass: boolean = false;
+
+  const handleClick = (ingredient: Ingredient): void => {
+    if (!ingredient.id) {
+      return;
+    }
+
+    onClick(ingredient.id);
+  };
 
   return (
     <>
@@ -22,6 +31,7 @@ export default function Ingredients({ ingredients, columns, paddingBottom = fals
           cups={ingredient.cups}
           bgClassName={ingredient.bgClassName}
           textClassName={ingredient.textClassName}
+          onClick={() => handleClick(ingredient)}
         />
       ))}
       {paddingBottom &&

@@ -1,4 +1,3 @@
-import { NavigateFunction, useNavigate } from 'react-router-dom';
 import clsx from 'clsx';
 
 interface IngredientTileProps {
@@ -8,15 +7,18 @@ interface IngredientTileProps {
   cups: number;
   bgClassName: string;
   textClassName: string;
+  onClick(): void;
 }
 
-export default function Ingredient({ id, title, image, cups, bgClassName, textClassName }: IngredientTileProps) {
-  const navigate: NavigateFunction = useNavigate();
-
-  const handleButtonClick = (): void => {
-    navigate('/customize/energy');
-  };
-
+export default function Ingredient({
+  id,
+  title,
+  image,
+  cups,
+  bgClassName,
+  textClassName,
+  onClick,
+}: IngredientTileProps) {
   return (
     <button
       data-id={id}
@@ -25,7 +27,7 @@ export default function Ingredient({ id, title, image, cups, bgClassName, textCl
         'focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-inset focus-visible:ring-primary',
         bgClassName,
       )}
-      onClick={handleButtonClick}
+      onClick={onClick}
     >
       <img src={image} alt={title} />
       <h2 className={clsx('text-center text-3xl font-bold', textClassName)}>{title}</h2>

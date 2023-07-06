@@ -4,6 +4,8 @@ import mint from '@/assets/mint.png';
 import coconut from '@/assets/coconut.png';
 import water from '@/assets/water.png';
 
+export const INITIAL_VALUE: string = 'no-flavor';
+
 export const NUMBER_OF_COLUMNS: number = 2;
 
 export const NULL_INGREDIENT: Ingredient = {

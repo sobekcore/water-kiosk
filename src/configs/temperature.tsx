@@ -3,13 +3,13 @@ import GlassWater from '@/components/Icons/GlassWater.tsx';
 import GlassWaterChilled from '@/components/Icons/GlassWaterChilled.tsx';
 import GlassWaterCold from '@/components/Icons/GlassWaterCold.tsx';
 
-export const INITIAL_VALUE: string = 'room';
+export const INITIAL_VALUE: number = 20;
 
-export const TEMPERATURE: LevelSelectionStep<string>[] = [
+export const TEMPERATURE: LevelSelectionStep<number>[] = [
   {
     label: 'Room',
     icon: <GlassWater />,
-    value: 'room',
+    value: 20,
     color: {
       text: 'text-primary',
       textOpacity: 'text-primary/40',
@@ -19,7 +19,7 @@ export const TEMPERATURE: LevelSelectionStep<string>[] = [
   {
     label: 'Chilled',
     icon: <GlassWaterChilled />,
-    value: 'chilled',
+    value: 10,
     color: {
       text: 'text-primary',
       textOpacity: 'text-primary/40',
@@ -29,7 +29,7 @@ export const TEMPERATURE: LevelSelectionStep<string>[] = [
   {
     label: 'Cold',
     icon: <GlassWaterCold />,
-    value: 'cold',
+    value: 3,
     color: {
       text: 'text-primary',
       textOpacity: 'text-primary/40',

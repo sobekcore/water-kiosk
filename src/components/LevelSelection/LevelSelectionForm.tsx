@@ -1,6 +1,7 @@
 import clsx from 'clsx';
 import { LevelSelectionStep } from '@/interfaces/level-selection.ts';
 import { UseLevelSelectionReturn, useLevelSelection } from '@/hooks/useLevelSelection.ts';
+import CustomizeTopPanel from '@/components/CustomizeTopPanel/CustomizeTopPanel.tsx';
 import LevelSelection from '@/components/LevelSelection/LevelSelection.tsx';
 import Button from '@/components/Button/Button.tsx';
 import ArrowRight from '@/components/Icons/ArrowRight.tsx';
@@ -25,20 +26,17 @@ export default function LevelSelectionForm<T>({
 }: LevelSelectionFormProps<T>) {
   const levelSelection: UseLevelSelectionReturn<T> = useLevelSelection<T>(steps, initialValue);
 
-  const handleLevelSelectionChange = (value: T): void => {
+  const handleChange = (value: T): void => {
     levelSelection.setValue(value);
   };
 
   return (
     <div className="flex flex-1 flex-col items-center justify-between p-4">
-      <div className="grid w-full grid-cols-[1fr_auto_1fr] items-center justify-between gap-x-4">
-        <div>
-          <Button className="p-4" onClick={onClickBack}>
-            <ChevronLeft className="text-3xl text-secondary" />
-          </Button>
-        </div>
-        <h2 className="truncate text-secondary">{title}</h2>
-      </div>
+      <CustomizeTopPanel title={title}>
+        <Button className="p-4" onClick={onClickBack}>
+          <ChevronLeft className="text-3xl text-secondary" />
+        </Button>
+      </CustomizeTopPanel>
       <div className="flex w-full flex-col items-center gap-y-8 p-4">
         <div
           className={clsx(
@@ -53,7 +51,7 @@ export default function LevelSelectionForm<T>({
             {levelSelection.getCurrentStep().label}
           </div>
         </div>
-        <LevelSelection<T> steps={steps} initialValue={initialValue} onChange={handleLevelSelectionChange} />
+        <LevelSelection<T> steps={steps} initialValue={initialValue} onChange={handleChange} />
       </div>
       <div className="flex w-full justify-center p-4">
         <Button

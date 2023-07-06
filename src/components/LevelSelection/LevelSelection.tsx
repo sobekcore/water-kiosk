@@ -16,7 +16,7 @@ interface LevelSelectionProps<T> {
 export default function LevelSelection<T>({ steps, initialValue, onChange }: LevelSelectionProps<T>) {
   const levelSelection: UseLevelSelectionReturn<T> = useLevelSelection<T>(steps, initialValue);
 
-  const handleButtonClick = (value: T): void => {
+  const handleClick = (value: T): void => {
     levelSelection.setValue(value);
     onChange(value);
   };
@@ -39,7 +39,7 @@ export default function LevelSelection<T>({ steps, initialValue, onChange }: Lev
               step.value === levelSelection.value && 'selected',
             )}
           >
-            <Button size="fab" className="bg-white" onClick={() => handleButtonClick(step.value)}>
+            <Button size="fab" className="bg-white" onClick={() => handleClick(step.value)}>
               {step.value === levelSelection.value ? (
                 <Check className="text-lg text-green" />
               ) : (
