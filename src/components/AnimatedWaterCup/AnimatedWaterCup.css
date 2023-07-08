@@ -1,0 +1,189 @@
+.animated-water-cup {
+  position: relative;
+  border: 20px solid theme('colors.brand-900');
+  border-radius: 50%;
+  width: 100%;
+}
+
+.animated-water-cup::before {
+  content: '';
+  position: absolute;
+  background: theme('colors.brand-100');
+  border-radius: 50%;
+  width: 100%;
+  height: 100%;
+  z-index: -2;
+}
+
+.animated-water-cup::after {
+  content: '';
+  position: absolute;
+  inset: 15%;
+  background: theme('colors.brand-900');
+  border-radius: 50%;
+  opacity: 30%;
+  z-index: -1;
+}
+
+.animated-water-cup .liquid {
+  position: absolute;
+  inset: 5%;
+  transform: translateX(-5%);
+  animation: liquid 1.5s ease-in-out infinite;
+  background: theme('colors.brand-200');
+  opacity: 60%;
+  border-radius: 50%;
+  z-index: 3;
+}
+
+.animated-water-cup .ice-cubes {
+  position: absolute;
+  inset: 0;
+  animation: elements 8s ease-in-out infinite;
+}
+
+.animated-water-cup .ice-cubes .ice-cube {
+  position: absolute;
+  background: theme('colors.white');
+  border-radius: 25%;
+  width: 30%;
+  height: 30%;
+}
+
+.animated-water-cup .ice-cubes .ice-cube.ice-cube-1 {
+  top: 15%;
+  left: 25%;
+  transform: rotate(10deg);
+  filter: brightness(0.8);
+}
+
+.animated-water-cup .ice-cubes .ice-cube.ice-cube-2 {
+  top: 55%;
+  left: 25%;
+  transform: rotate(30deg);
+}
+
+.animated-water-cup .ice-cubes .ice-cube.ice-cube-3 {
+  top: 35%;
+  left: 55%;
+  transform: rotate(-45deg);
+}
+
+.animated-water-cup .leaves {
+  position: absolute;
+  inset: 0;
+  animation: elements 12s ease-in-out infinite;
+}
+
+.animated-water-cup .leaves .leave {
+  position: absolute;
+  background: theme('colors.mint-primary');
+  border-radius: 85% 0;
+  width: 33%;
+  height: 25%;
+}
+
+.animated-water-cup .leaves .leave::before {
+  content: '';
+  position: absolute;
+  top: 25%;
+  transform: rotate(55deg) translateY(-50%);
+  background: theme('colors.mint-secondary');
+  opacity: 60%;
+  width: 1px;
+  height: 150%;
+}
+
+.animated-water-cup .leaves .leave.leave-1 {
+  top: 35%;
+  left: 10%;
+  transform: rotate(-60deg);
+}
+
+.animated-water-cup .leaves .leave.leave-2 {
+  top: 25%;
+  left: 40%;
+  transform: rotate(-15deg);
+}
+
+.animated-water-cup .leaves .leave.leave-3 {
+  top: 55%;
+  left: 40%;
+  transform: rotate(35deg);
+}
+
+.animated-water-cup .ingredients {
+  position: absolute;
+  inset: 0;
+  animation: elements 16s ease-in-out infinite;
+}
+
+.animated-water-cup .ingredients .lemon {
+  position: absolute;
+  top: 20%;
+  left: 45%;
+  transform: rotate(45deg);
+  animation: ingredients 3s ease-in-out infinite;
+  background: theme('colors.lemon-secondary');
+  border: 10px solid theme('colors.lemon-primary');
+  border-bottom: 0;
+  border-radius: 100px 100px 0 0;
+  width: 50%;
+  height: 25%;
+  z-index: 1;
+}
+
+.animated-water-cup .ingredients .lemon::before,
+.animated-water-cup .ingredients .lemon::after {
+  content: '';
+  position: absolute;
+  background: theme('colors.lemon-complementary');
+  border-radius: 85% 0;
+  width: 20%;
+  height: 40%;
+}
+
+.animated-water-cup .ingredients .lemon::before {
+  bottom: 15%;
+  right: 25%;
+  transform: rotate(-20deg);
+}
+
+.animated-water-cup .ingredients .lemon::after {
+  bottom: 15%;
+  left: 25%;
+  transform: rotate(-70deg);
+}
+
+@keyframes liquid {
+  from {
+    transform: translateX(-5%);
+  }
+  50% {
+    transform: translatex(5%);
+  }
+  to {
+    transform: translatex(-5%);
+  }
+}
+
+@keyframes elements {
+  from {
+    transform: rotate(0);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes ingredients {
+  from {
+    transform: rotate(45deg);
+  }
+  50% {
+    transform: rotate(60deg);
+  }
+  to {
+    transform: rotate(45deg);
+  }
+}

@@ -8,7 +8,7 @@ export default function WaterParameter({ title, children }: WaterParameterProps)
   return (
     <div className="flex flex-col items-center">
       <div>{children}</div>
-      <h3 className="mt-3 text-secondary">{title}</h3>
+      <h3 className="mt-3 text-brand-900">{title}</h3>
     </div>
   );
 }

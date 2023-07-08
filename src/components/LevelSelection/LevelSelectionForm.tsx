@@ -34,7 +34,7 @@ export default function LevelSelectionForm<T>({
     <div className="flex flex-1 flex-col items-center justify-between p-4">
       <CustomizeTopPanel title={title}>
         <Button className="p-4" onClick={onClickBack}>
-          <ChevronLeft className="text-3xl text-secondary" />
+          <ChevronLeft className="text-3xl text-brand-900" />
         </Button>
       </CustomizeTopPanel>
       <div className="flex w-full flex-col items-center gap-y-8 p-4">

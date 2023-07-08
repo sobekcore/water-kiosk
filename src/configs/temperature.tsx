@@ -11,9 +11,9 @@ export const TEMPERATURE: LevelSelectionStep<number>[] = [
     icon: <GlassWater />,
     value: 20,
     color: {
-      text: 'text-primary',
-      textOpacity: 'text-primary/40',
-      background: 'bg-primary',
+      text: 'text-brand-300',
+      textOpacity: 'text-brand-300/40',
+      background: 'bg-brand-300',
     },
   },
   {
@@ -21,9 +21,9 @@ export const TEMPERATURE: LevelSelectionStep<number>[] = [
     icon: <GlassWaterChilled />,
     value: 10,
     color: {
-      text: 'text-primary',
-      textOpacity: 'text-primary/40',
-      background: 'bg-primary',
+      text: 'text-brand-300',
+      textOpacity: 'text-brand-300/40',
+      background: 'bg-brand-300',
     },
   },
   {
@@ -31,9 +31,9 @@ export const TEMPERATURE: LevelSelectionStep<number>[] = [
     icon: <GlassWaterCold />,
     value: 3,
     color: {
-      text: 'text-primary',
-      textOpacity: 'text-primary/40',
-      background: 'bg-primary',
+      text: 'text-brand-300',
+      textOpacity: 'text-brand-300/40',
+      background: 'bg-brand-300',
     },
   },
 ];

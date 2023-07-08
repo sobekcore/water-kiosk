@@ -3,16 +3,17 @@
  *  https://github.com/tailwindlabs/tailwindcss/issues/9908
  */
 @media not all and (min-width: theme('screens.xs')) {
-  .ingredients {
-    @apply !grid-cols-1 !grid-rows-1;
+  .customize-ingredients {
+    grid-template-columns: 1fr !important;
+    grid-template-rows: 1fr !important;
   }
 
-  .ingredients .ingredient:not([data-id]),
-  .ingredients .ingredient-padding {
-    @apply hidden;
+  .customize-ingredients .ingredient:not([data-id]),
+  .customize-ingredients .ingredient-padding {
+    display: none;
   }
 
-  .ingredients .ingredient-padding.base {
-    @apply block;
+  .customize-ingredients .ingredient-padding.base {
+    display: block;
   }
 }

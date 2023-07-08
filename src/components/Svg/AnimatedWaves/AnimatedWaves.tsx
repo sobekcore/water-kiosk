@@ -3,7 +3,7 @@ import '@/components/Svg/AnimatedWaves/AnimatedWaves.css';
 export default function AnimatedWaves() {
   return (
     <div className="overflow-hidden">
-      <svg className="waves" viewBox="0 0 12960 1120" fill="#27a9e1">
+      <svg className="animated-waves" viewBox="0 0 12960 1120" fill="#27a9e1">
         <path d="M9720,320C8100,320,8100,0,6480,0S4860,320,3240,320,1620,0,0,0V1120H12960V0C11340,0,11340,320,9720,320Z">
           <animate
             dur="4s"

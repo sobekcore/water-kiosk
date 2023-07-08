@@ -4,10 +4,13 @@
   }
 
   body {
-    @apply bg-white min-w-[280px];
+    background: theme('colors.white');
+    min-width: 280px;
   }
 
   svg.icon {
-    @apply fill-[currentColor] w-[1em] h-[1em];
+    fill: currentColor;
+    width: 1em;
+    height: 1em;
   }
 }

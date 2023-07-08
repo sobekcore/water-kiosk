@@ -29,7 +29,7 @@ export default function CustomizeIngredient() {
         renderItems={(ingredients: Ingredient[]) => (
           <Ingredients ingredients={ingredients} columns={NUMBER_OF_COLUMNS} paddingBottom onClick={handleClick} />
         )}
-        className="ingredients flex-1"
+        className="customize-ingredients flex-1"
       />
       <div className="fixed bottom-0 h-[50px] w-full rounded-t-3xl bg-white drop-shadow-t-2xl xs:h-[70px]">
         <div className="flex h-full items-center justify-center gap-4 p-4">

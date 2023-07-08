@@ -2,6 +2,7 @@ import clsx from 'clsx';
 import { UseWaterParameterReturn, useWaterParameter } from '@/hooks/useWaterParameter.ts';
 import CustomizeTopPanel from '@/components/CustomizeTopPanel/CustomizeTopPanel.tsx';
 import WaterParameter from '@/components/WaterParameters/WaterParameter.tsx';
+import AnimatedWaterCup from '@/components/AnimatedWaterCup/AnimatedWaterCup.tsx';
 
 export default function Dispensing() {
   const waterParameter: UseWaterParameterReturn = useWaterParameter();
@@ -11,9 +12,9 @@ export default function Dispensing() {
       <div className="flex flex-1 flex-col items-center justify-between p-4">
         <CustomizeTopPanel title="We are making you dreams come true!" />
         <div className="flex w-full justify-center gap-y-8 p-4">
-          <h1>TODO</h1>
+          <AnimatedWaterCup className="aspect-square h-full w-full max-w-[350px] drop-shadow-2xl" />
         </div>
-        <div className="flex items-center justify-center gap-x-10 p-4">
+        <div className="flex flex-wrap items-center justify-center gap-6 p-4 xs:gap-10">
           <WaterParameter title={waterParameter.getIngredientParameter().title}>
             <img
               src={waterParameter.getIngredientParameter().image}

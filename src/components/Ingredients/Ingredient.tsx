@@ -24,7 +24,7 @@ export default function Ingredient({
       data-id={id}
       className={clsx(
         'ingredient flex flex-col items-center justify-center p-4',
-        'focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-inset focus-visible:ring-primary',
+        'focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-inset focus-visible:ring-brand-300',
         bgClassName,
       )}
       onClick={onClick}

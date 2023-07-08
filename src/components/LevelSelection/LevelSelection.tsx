@@ -43,13 +43,13 @@ export default function LevelSelection<T>({ steps, initialValue, onChange }: Lev
               {step.value === levelSelection.value ? (
                 <Check className="text-lg text-green" />
               ) : (
-                <Plus className="text-lg text-primary" />
+                <Plus className="text-lg text-brand-300" />
               )}
             </Button>
             <h3
               className={clsx(
                 'absolute bottom-0',
-                step.value === levelSelection.value ? 'text-secondary' : 'text-gray',
+                step.value === levelSelection.value ? 'text-brand-900' : 'text-gray',
               )}
             >
               {step.label}

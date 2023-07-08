@@ -18,11 +18,11 @@ export default function Home() {
         </div>
         <div className="flex h-full flex-col">
           <AnimatedWaves />
-          <div className="flex flex-grow flex-col items-center justify-end gap-y-8 bg-primary p-8">
+          <div className="flex flex-grow flex-col items-center justify-end gap-y-8 bg-brand-300 p-8">
             <Button size="lg" className="bg-white" onClick={handleClick}>
               Thirsty?
             </Button>
-            <p className="text-center text-secondary">Drink Water. Stay Healthy.</p>
+            <p className="text-center text-brand-900">Drink Water. Stay Healthy.</p>
           </div>
         </div>
       </div>
