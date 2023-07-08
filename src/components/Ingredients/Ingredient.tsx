@@ -1,7 +1,8 @@
 import clsx from 'clsx';
+import { IngredientId } from '@/enums/ingredient.ts';
 
 interface IngredientTileProps {
-  id: string | null;
+  id: IngredientId | null;
   title: string;
   image: string;
   cups: number;

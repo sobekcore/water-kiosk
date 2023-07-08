@@ -1,9 +1,9 @@
 import { ReactElement } from 'react';
 
 export interface LevelSelectionStep<T> {
+  value: T;
   label: string;
   icon: ReactElement;
-  value: T;
   color: LevelSelectionStepColors;
 }
 

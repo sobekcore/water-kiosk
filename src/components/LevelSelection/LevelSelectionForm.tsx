@@ -3,9 +3,9 @@ import { LevelSelectionStep } from '@/interfaces/level-selection.ts';
 import { UseLevelSelectionReturn, useLevelSelection } from '@/hooks/useLevelSelection.ts';
 import CustomizeTopPanel from '@/components/CustomizeTopPanel/CustomizeTopPanel.tsx';
 import LevelSelection from '@/components/LevelSelection/LevelSelection.tsx';
-import Button from '@/components/Button/Button.tsx';
+import Button from '@/components/Common/Button/Button.tsx';
 import ArrowRight from '@/components/Icons/ArrowRight.tsx';
-import ChevronLeft from '@/components/Icons/ChevronLeft.tsx';
+import CircleChevronLeft from '@/components/Icons/CircleChevronLeft.tsx';
 
 interface LevelSelectionFormProps<T> {
   steps: LevelSelectionStep<T>[];
@@ -34,7 +34,7 @@ export default function LevelSelectionForm<T>({
     <div className="flex flex-1 flex-col items-center justify-between p-4">
       <CustomizeTopPanel title={title}>
         <Button className="p-4" onClick={onClickBack}>
-          <ChevronLeft className="text-3xl text-brand-900" />
+          <CircleChevronLeft className="text-3xl text-brand-900" />
         </Button>
       </CustomizeTopPanel>
       <div className="flex w-full flex-col items-center gap-y-8 p-4">
@@ -47,9 +47,9 @@ export default function LevelSelectionForm<T>({
           <div className={clsx('text-5xl xs:text-7xl', levelSelection.getCurrentStep().color.text)}>
             {levelSelection.getCurrentStep().icon}
           </div>
-          <div className={clsx('text-5xl font-bold xs:text-7xl', levelSelection.getCurrentStep().color.text)}>
+          <h2 className={clsx('text-5xl font-bold xs:text-7xl', levelSelection.getCurrentStep().color.text)}>
             {levelSelection.getCurrentStep().label}
-          </div>
+          </h2>
         </div>
         <LevelSelection<T> steps={steps} initialValue={initialValue} onChange={handleChange} />
       </div>

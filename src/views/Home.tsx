@@ -1,13 +1,13 @@
-import { NavigateFunction, useNavigate } from 'react-router-dom';
-import Button from '@/components/Button/Button.tsx';
-import Logo from '@/components/Svg/Logo.tsx';
-import AnimatedWaves from '@/components/Svg/AnimatedWaves/AnimatedWaves.tsx';
+import { UseCurrentRouteReturn, useCurrentRoute } from '@/hooks/useCurrentRoute.ts';
+import Button from '@/components/Common/Button/Button.tsx';
+import Logo from '@/components/Common/Logo.tsx';
+import AnimatedWaves from '@/components/AnimatedWaves/AnimatedWaves.tsx';
 
 export default function Home() {
-  const navigate: NavigateFunction = useNavigate();
+  const currentRoute: UseCurrentRouteReturn = useCurrentRoute();
 
   const handleClick = (): void => {
-    navigate('/customize/ingredient');
+    currentRoute.navigate('/customize/ingredient');
   };
 
   return (

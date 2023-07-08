@@ -1,4 +1,4 @@
-import '@/components/Svg/AnimatedWaves/AnimatedWaves.css';
+import '@/components/AnimatedWaves/AnimatedWaves.css';
 
 export default function AnimatedWaves() {
   return (

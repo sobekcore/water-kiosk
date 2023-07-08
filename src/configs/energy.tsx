@@ -1,13 +1,14 @@
+import { EnergyValue } from '@/enums/energy.ts';
 import { LevelSelectionStep } from '@/interfaces/level-selection.ts';
 import Bolt from '@/components/Icons/Bolt.tsx';
 
-export const INITIAL_VALUE: number = 1;
+export const INITIAL_VALUE: EnergyValue = EnergyValue['1X'];
 
-export const ENERGY: LevelSelectionStep<number>[] = [
+export const ENERGY: LevelSelectionStep<EnergyValue>[] = [
   {
+    value: EnergyValue['1X'],
     label: '1X',
     icon: <Bolt />,
-    value: 1,
     color: {
       text: 'text-green',
       textOpacity: 'text-green/40',
@@ -15,9 +16,9 @@ export const ENERGY: LevelSelectionStep<number>[] = [
     },
   },
   {
+    value: EnergyValue['2X'],
     label: '2X',
     icon: <Bolt />,
-    value: 2,
     color: {
       text: 'text-orange',
       textOpacity: 'text-orange/40',
@@ -25,9 +26,9 @@ export const ENERGY: LevelSelectionStep<number>[] = [
     },
   },
   {
+    value: EnergyValue['3X'],
     label: '3X',
     icon: <Bolt />,
-    value: 3,
     color: {
       text: 'text-red',
       textOpacity: 'text-red/40',

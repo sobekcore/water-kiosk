@@ -1,49 +1,81 @@
 import { ReactNode, createContext, useState } from 'react';
-import { WaterParameters } from '@/interfaces/water.ts';
 import { INITIAL_VALUE as INGREDIENT_INITIAL_VALUE } from '@/configs/ingredients.ts';
 import { INITIAL_VALUE as ENERGY_INITIAL_VALUE } from '@/configs/energy.tsx';
 import { INITIAL_VALUE as TEMPERATURE_INITIAL_VALUE } from '@/configs/temperature.tsx';
+import { StorageKey } from '@/enums/storage.ts';
+import { IngredientId } from '@/enums/ingredient.ts';
+import { EnergyValue } from '@/enums/energy.ts';
+import { TemperatureValue } from '@/enums/temperature.ts';
+import { WaterState } from '@/interfaces/water.ts';
+import { Storage } from '@/interfaces/storage.ts';
+import { useStorage } from '@/hooks/useStorage.ts';
 
 interface WaterProviderProps {
   children: ReactNode;
 }
 
 export interface WaterContextData {
-  getIngredient(): string;
-  getEnergy(): number;
-  getTemperature(): number;
-  setIngredient(ingredient: string): void;
-  setEnergy(energy: number): void;
-  setTemperature(temperature: number): void;
+  getIngredient(): IngredientId;
+  getEnergy(): EnergyValue;
+  getTemperature(): TemperatureValue;
+  setIngredient(ingredient: IngredientId): void;
+  setEnergy(energy: EnergyValue): void;
+  setTemperature(temperature: TemperatureValue): void;
+  clearIngredient(): void;
+  clearEnergy(): void;
+  clearTemperature(): void;
+  clear(): void;
 }
 
 export const WaterContext = createContext<WaterContextData | null>(null);
 
 export default function WaterProvider({ children }: WaterProviderProps) {
-  const [parameters, setParameters] = useState<WaterParameters>({
-    ingredient: INGREDIENT_INITIAL_VALUE,
-    energy: ENERGY_INITIAL_VALUE,
-    temperature: TEMPERATURE_INITIAL_VALUE,
+  const storage: Storage = useStorage();
+
+  const [state, setState] = useState<WaterState>({
+    ingredient: storage.get<IngredientId>(StorageKey.INGREDIENT) ?? INGREDIENT_INITIAL_VALUE,
+    energy: storage.get<EnergyValue>(StorageKey.ENERGY) ?? ENERGY_INITIAL_VALUE,
+    temperature: storage.get<TemperatureValue>(StorageKey.TEMPERATURE) ?? TEMPERATURE_INITIAL_VALUE,
   });
 
   const data: WaterContextData = {
-    getIngredient(): string {
-      return parameters.ingredient;
+    getIngredient(): IngredientId {
+      return state.ingredient;
     },
-    getEnergy(): number {
-      return parameters.energy;
+    getEnergy(): EnergyValue {
+      return state.energy;
     },
-    getTemperature(): number {
-      return parameters.temperature;
+    getTemperature(): TemperatureValue {
+      return state.temperature;
     },
-    setIngredient(ingredient: string): void {
-      setParameters({ ...parameters, ingredient });
+    setIngredient(ingredient: IngredientId): void {
+      setState({ ...state, ingredient });
+      storage.set(StorageKey.INGREDIENT, ingredient);
     },
-    setEnergy(energy: number): void {
-      setParameters({ ...parameters, energy });
+    setEnergy(energy: EnergyValue): void {
+      setState({ ...state, energy });
+      storage.set(StorageKey.ENERGY, energy);
     },
-    setTemperature(temperature: number): void {
-      setParameters({ ...parameters, temperature });
+    setTemperature(temperature: TemperatureValue): void {
+      setState({ ...state, temperature });
+      storage.set(StorageKey.TEMPERATURE, temperature);
+    },
+    clearIngredient(): void {
+      setState({ ...state, ingredient: INGREDIENT_INITIAL_VALUE });
+      storage.remove(StorageKey.INGREDIENT);
+    },
+    clearEnergy(): void {
+      setState({ ...state, energy: ENERGY_INITIAL_VALUE });
+      storage.remove(StorageKey.ENERGY);
+    },
+    clearTemperature(): void {
+      setState({ ...state, temperature: TEMPERATURE_INITIAL_VALUE });
+      storage.remove(StorageKey.TEMPERATURE);
+    },
+    clear(): void {
+      data.clearIngredient();
+      data.clearEnergy();
+      data.clearTemperature();
     },
   };
 

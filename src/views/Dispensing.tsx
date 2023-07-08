@@ -1,11 +1,23 @@
+import { useEffect } from 'react';
 import clsx from 'clsx';
+import { UseCurrentRouteReturn, useCurrentRoute } from '@/hooks/useCurrentRoute.ts';
 import { UseWaterParameterReturn, useWaterParameter } from '@/hooks/useWaterParameter.ts';
 import CustomizeTopPanel from '@/components/CustomizeTopPanel/CustomizeTopPanel.tsx';
 import WaterParameter from '@/components/WaterParameters/WaterParameter.tsx';
 import AnimatedWaterCup from '@/components/AnimatedWaterCup/AnimatedWaterCup.tsx';
 
 export default function Dispensing() {
+  const currentRoute: UseCurrentRouteReturn = useCurrentRoute();
   const waterParameter: UseWaterParameterReturn = useWaterParameter();
+
+  useEffect((): void => {
+    /**
+     * TODO: Implement proper waiting system for water to be dispensed
+     */
+    setTimeout((): void => {
+      currentRoute.navigate('/finished');
+    }, 10000);
+  }, []);
 
   return (
     <div className="flex min-h-dynamic-screen">
@@ -19,7 +31,7 @@ export default function Dispensing() {
             <img
               src={waterParameter.getIngredientParameter().image}
               alt={waterParameter.getIngredientParameter().title}
-              className="h-[4rem] w-[4rem] scale-150"
+              className="h-16 w-16 scale-150"
             />
           </WaterParameter>
           <WaterParameter title={waterParameter.getEnergyParameter().label}>

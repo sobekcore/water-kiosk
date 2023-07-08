@@ -1,15 +1,16 @@
+import { TemperatureValue } from '@/enums/temperature.ts';
 import { LevelSelectionStep } from '@/interfaces/level-selection.ts';
 import GlassWater from '@/components/Icons/GlassWater.tsx';
 import GlassWaterChilled from '@/components/Icons/GlassWaterChilled.tsx';
 import GlassWaterCold from '@/components/Icons/GlassWaterCold.tsx';
 
-export const INITIAL_VALUE: number = 20;
+export const INITIAL_VALUE: TemperatureValue = TemperatureValue.ROOM;
 
-export const TEMPERATURE: LevelSelectionStep<number>[] = [
+export const TEMPERATURE: LevelSelectionStep<TemperatureValue>[] = [
   {
+    value: TemperatureValue.ROOM,
     label: 'Room',
     icon: <GlassWater />,
-    value: 20,
     color: {
       text: 'text-brand-300',
       textOpacity: 'text-brand-300/40',
@@ -17,9 +18,9 @@ export const TEMPERATURE: LevelSelectionStep<number>[] = [
     },
   },
   {
+    value: TemperatureValue.CHILLED,
     label: 'Chilled',
     icon: <GlassWaterChilled />,
-    value: 10,
     color: {
       text: 'text-brand-300',
       textOpacity: 'text-brand-300/40',
@@ -27,9 +28,9 @@ export const TEMPERATURE: LevelSelectionStep<number>[] = [
     },
   },
   {
+    value: TemperatureValue.COLD,
     label: 'Cold',
     icon: <GlassWaterCold />,
-    value: 3,
     color: {
       text: 'text-brand-300',
       textOpacity: 'text-brand-300/40',

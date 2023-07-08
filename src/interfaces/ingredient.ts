@@ -1,5 +1,7 @@
+import { IngredientId } from '@/enums/ingredient.ts';
+
 export interface Ingredient {
-  id: string | null;
+  id: IngredientId | null;
   title: string;
   image: string;
   cups: number;

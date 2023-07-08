@@ -1,23 +1,24 @@
 import { useContext } from 'react';
-import { NavigateFunction, useNavigate } from 'react-router-dom';
 import { INGREDIENTS, NULL_INGREDIENT, NUMBER_OF_COLUMNS } from '@/configs/ingredients.ts';
+import { IngredientId } from '@/enums/ingredient.ts';
 import { Ingredient } from '@/interfaces/ingredient.ts';
 import { WaterContextData, WaterContext } from '@/providers/WaterProvider.tsx';
-import Logo from '@/components/Svg/Logo.tsx';
+import { UseCurrentRouteReturn, useCurrentRoute } from '@/hooks/useCurrentRoute.ts';
+import Logo from '@/components/Common/Logo.tsx';
 import EvenGrid from '@/components/EvenGrid/EvenGrid.tsx';
 import Ingredients from '@/components/Ingredients/Ingredients.tsx';
 import '@/views/CustomizeIngredient.css';
 
 export default function CustomizeIngredient() {
-  const navigate: NavigateFunction = useNavigate();
   const waterContext: WaterContextData | null = useContext(WaterContext);
+  const currentRoute: UseCurrentRouteReturn = useCurrentRoute();
 
-  const handleClick = (ingredient: string): void => {
+  const handleClick = (ingredient: IngredientId): void => {
     if (waterContext) {
       waterContext.setIngredient(ingredient);
     }
 
-    navigate('/customize/energy');
+    currentRoute.navigate('/customize/energy');
   };
 
   return (

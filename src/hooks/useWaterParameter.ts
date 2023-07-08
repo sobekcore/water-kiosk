@@ -3,14 +3,17 @@ import { INGREDIENTS } from '@/configs/ingredients.ts';
 import { ENERGY } from '@/configs/energy.tsx';
 import { TEMPERATURE } from '@/configs/temperature.tsx';
 import { ComponentException } from '@/exceptions/component-exception.ts';
+import { EnergyValue } from '@/enums/energy.ts';
+import { TemperatureValue } from '@/enums/temperature.ts';
 import { Ingredient } from '@/interfaces/ingredient.ts';
 import { LevelSelectionStep } from '@/interfaces/level-selection.ts';
 import { WaterContextData, WaterContext } from '@/providers/WaterProvider.tsx';
+import { IngredientId } from '@/enums/ingredient.ts';
 
 export interface UseWaterParameterReturn {
   getIngredientParameter(): Ingredient;
-  getEnergyParameter(): LevelSelectionStep<number>;
-  getTemperatureParameter(): LevelSelectionStep<number>;
+  getEnergyParameter(): LevelSelectionStep<EnergyValue>;
+  getTemperatureParameter(): LevelSelectionStep<TemperatureValue>;
 }
 
 export function useWaterParameter(): UseWaterParameterReturn {
@@ -33,23 +36,27 @@ export function useWaterParameter(): UseWaterParameterReturn {
       throw new ComponentException('WaterContext is not available at this component level');
     }
 
-    return getParameterByValue<Ingredient, string>(INGREDIENTS, waterContext.getIngredient(), 'id');
+    return getParameterByValue<Ingredient, IngredientId>(INGREDIENTS, waterContext.getIngredient(), 'id');
   };
 
-  const getEnergyParameter = (): LevelSelectionStep<number> => {
+  const getEnergyParameter = (): LevelSelectionStep<EnergyValue> => {
     if (!waterContext) {
       throw new ComponentException('WaterContext is not available at this component level');
     }
 
-    return getParameterByValue<LevelSelectionStep<number>, number>(ENERGY, waterContext.getEnergy(), 'value');
+    return getParameterByValue<LevelSelectionStep<EnergyValue>, EnergyValue>(ENERGY, waterContext.getEnergy(), 'value');
   };
 
-  const getTemperatureParameter = (): LevelSelectionStep<number> => {
+  const getTemperatureParameter = (): LevelSelectionStep<TemperatureValue> => {
     if (!waterContext) {
       throw new ComponentException('WaterContext is not available at this component level');
     }
 
-    return getParameterByValue<LevelSelectionStep<number>, number>(TEMPERATURE, waterContext.getTemperature(), 'value');
+    return getParameterByValue<LevelSelectionStep<TemperatureValue>, TemperatureValue>(
+      TEMPERATURE,
+      waterContext.getTemperature(),
+      'value',
+    );
   };
 
   return {

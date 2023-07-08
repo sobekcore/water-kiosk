@@ -1,4 +1,5 @@
 import clsx from 'clsx';
+import { IngredientId } from '@/enums/ingredient.ts';
 import { Ingredient } from '@/interfaces/ingredient.ts';
 import IngredientComponent from '@/components/Ingredients/Ingredient.tsx';
 
@@ -6,7 +7,7 @@ interface IngredientsProps {
   ingredients: Ingredient[];
   columns: number;
   paddingBottom?: boolean;
-  onClick(ingredient: string): void;
+  onClick(ingredient: IngredientId): void;
 }
 
 export default function Ingredients({ ingredients, columns, paddingBottom = false, onClick }: IngredientsProps) {

@@ -1,10 +1,11 @@
+import { IngredientId } from '@/enums/ingredient.ts';
 import { Ingredient } from '@/interfaces/ingredient.ts';
 import cucumber from '@/assets/cucumber.png';
 import mint from '@/assets/mint.png';
 import coconut from '@/assets/coconut.png';
 import water from '@/assets/water.png';
 
-export const INITIAL_VALUE: string = 'no-flavor';
+export const INITIAL_VALUE: IngredientId = IngredientId.NO_FLAVOR;
 
 export const NUMBER_OF_COLUMNS: number = 2;
 
@@ -19,7 +20,7 @@ export const NULL_INGREDIENT: Ingredient = {
 
 export const INGREDIENTS: Ingredient[] = [
   {
-    id: 'cucumber',
+    id: IngredientId.CUCUMBER,
     title: 'Cucumber',
     image: cucumber,
     cups: 47,
@@ -27,7 +28,7 @@ export const INGREDIENTS: Ingredient[] = [
     textClassName: 'text-cucumber-primary',
   },
   {
-    id: 'mint',
+    id: IngredientId.MINT,
     title: 'Mint',
     image: mint,
     cups: 190,
@@ -35,7 +36,7 @@ export const INGREDIENTS: Ingredient[] = [
     textClassName: 'text-mint-primary',
   },
   {
-    id: 'coconut',
+    id: IngredientId.COCONUT,
     title: 'Coconut',
     image: coconut,
     cups: 89,
@@ -43,7 +44,7 @@ export const INGREDIENTS: Ingredient[] = [
     textClassName: 'text-coconut-primary',
   },
   {
-    id: 'no-flavor',
+    id: IngredientId.NO_FLAVOR,
     title: 'No Flavor',
     image: water,
     cups: 832,

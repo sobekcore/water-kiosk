@@ -1,28 +1,33 @@
 import { useContext } from 'react';
-import { NavigateFunction, useNavigate } from 'react-router-dom';
 import { ENERGY, INITIAL_VALUE } from '@/configs/energy.tsx';
+import { EnergyValue } from '@/enums/energy.ts';
 import { WaterContextData, WaterContext } from '@/providers/WaterProvider.tsx';
+import { UseCurrentRouteReturn, useCurrentRoute } from '@/hooks/useCurrentRoute.ts';
 import LevelSelectionForm from '@/components/LevelSelection/LevelSelectionForm.tsx';
 
 export default function CustomizeEnergy() {
-  const navigate: NavigateFunction = useNavigate();
   const waterContext: WaterContextData | null = useContext(WaterContext);
+  const currentRoute: UseCurrentRouteReturn = useCurrentRoute();
 
   const handleClickBack = (): void => {
-    navigate('/customize/ingredient');
+    if (waterContext) {
+      waterContext.clearIngredient();
+    }
+
+    currentRoute.navigate('/customize/ingredient');
   };
 
-  const handleClickNext = (energy: number): void => {
+  const handleClickNext = (energy: EnergyValue): void => {
     if (waterContext) {
       waterContext.setEnergy(energy);
     }
 
-    navigate(`/customize/temperature`);
+    currentRoute.navigate(`/customize/temperature`);
   };
 
   return (
     <div className="flex min-h-dynamic-screen">
-      <LevelSelectionForm<number>
+      <LevelSelectionForm<EnergyValue>
         steps={ENERGY}
         initialValue={INITIAL_VALUE}
         title="Need a little pep in your step?"

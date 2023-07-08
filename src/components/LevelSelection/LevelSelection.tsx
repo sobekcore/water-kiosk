@@ -2,7 +2,7 @@ import { Fragment } from 'react';
 import clsx from 'clsx';
 import { LevelSelectionStep } from '@/interfaces/level-selection.ts';
 import { UseLevelSelectionReturn, useLevelSelection } from '@/hooks/useLevelSelection.ts';
-import Button from '@/components/Button/Button.tsx';
+import Button from '@/components/Common/Button/Button.tsx';
 import Check from '@/components/Icons/Check.tsx';
 import Plus from '@/components/Icons/Plus.tsx';
 import '@/components/LevelSelection/LevelSelection.css';
