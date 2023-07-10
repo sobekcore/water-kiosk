@@ -3,6 +3,7 @@ import { ENERGY, INITIAL_VALUE } from '@/configs/energy.tsx';
 import { EnergyValue } from '@/enums/energy.ts';
 import { WaterContextData, WaterContext } from '@/providers/WaterProvider.tsx';
 import { UseCurrentRouteReturn, useCurrentRoute } from '@/hooks/useCurrentRoute.ts';
+import Page from '@/components/Common/Page.tsx';
 import LevelSelectionForm from '@/components/LevelSelection/LevelSelectionForm.tsx';
 
 export default function CustomizeEnergy() {
@@ -26,7 +27,12 @@ export default function CustomizeEnergy() {
   };
 
   return (
-    <div className="flex min-h-dynamic-screen">
+    <Page
+      animation="fromLeftToRight"
+      fromPrev={currentRoute.location?.state?.from === '/customize/temperature'}
+      toNext={location.pathname === '/customize/temperature'}
+      className="flex min-h-dynamic-screen"
+    >
       <LevelSelectionForm<EnergyValue>
         steps={ENERGY}
         initialValue={INITIAL_VALUE}
@@ -35,6 +41,6 @@ export default function CustomizeEnergy() {
         onClickBack={handleClickBack}
         onClickNext={handleClickNext}
       />
-    </div>
+    </Page>
   );
 }

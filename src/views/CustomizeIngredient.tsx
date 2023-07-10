@@ -4,6 +4,7 @@ import { IngredientId } from '@/enums/ingredient.ts';
 import { Ingredient } from '@/interfaces/ingredient.ts';
 import { WaterContextData, WaterContext } from '@/providers/WaterProvider.tsx';
 import { UseCurrentRouteReturn, useCurrentRoute } from '@/hooks/useCurrentRoute.ts';
+import Page from '@/components/Common/Page.tsx';
 import Logo from '@/components/Common/Logo.tsx';
 import EvenGrid from '@/components/EvenGrid/EvenGrid.tsx';
 import Ingredients from '@/components/Ingredients/Ingredients.tsx';
@@ -22,7 +23,12 @@ export default function CustomizeIngredient() {
   };
 
   return (
-    <div className="flex min-h-dynamic-screen flex-col">
+    <Page
+      animation="fromFadeToLeft"
+      fromPrev={currentRoute.location?.state?.from === '/customize/energy'}
+      toNext={location.pathname === '/customize/energy'}
+      className="flex min-h-dynamic-screen flex-col"
+    >
       <EvenGrid<Ingredient>
         items={INGREDIENTS}
         nullItem={NULL_INGREDIENT}
@@ -38,6 +44,6 @@ export default function CustomizeIngredient() {
           <p className="truncate text-lg">Add some flavor, or drink it plain...</p>
         </div>
       </div>
-    </div>
+    </Page>
   );
 }

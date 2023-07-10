@@ -3,6 +3,7 @@ import { TEMPERATURE, INITIAL_VALUE } from '@/configs/temperature.tsx';
 import { TemperatureValue } from '@/enums/temperature.ts';
 import { WaterContextData, WaterContext } from '@/providers/WaterProvider.tsx';
 import { UseCurrentRouteReturn, useCurrentRoute } from '@/hooks/useCurrentRoute.ts';
+import Page from '@/components/Common/Page.tsx';
 import LevelSelectionForm from '@/components/LevelSelection/LevelSelectionForm.tsx';
 
 export default function CustomizeTemperature() {
@@ -26,7 +27,12 @@ export default function CustomizeTemperature() {
   };
 
   return (
-    <div className="flex min-h-dynamic-screen">
+    <Page
+      animation="fromLeftToFade"
+      fromPrev={currentRoute.location?.state?.from === '/dispensing'}
+      toNext={location.pathname === '/dispensing'}
+      className="flex min-h-dynamic-screen"
+    >
       <LevelSelectionForm<TemperatureValue>
         steps={TEMPERATURE}
         initialValue={INITIAL_VALUE}
@@ -35,6 +41,6 @@ export default function CustomizeTemperature() {
         onClickBack={handleClickBack}
         onClickNext={handleClickNext}
       />
-    </div>
+    </Page>
   );
 }

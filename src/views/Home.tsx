@@ -1,4 +1,5 @@
 import { UseCurrentRouteReturn, useCurrentRoute } from '@/hooks/useCurrentRoute.ts';
+import Page from '@/components/Common/Page.tsx';
 import Button from '@/components/Common/Button/Button.tsx';
 import Logo from '@/components/Common/Logo.tsx';
 import AnimatedWaves from '@/components/AnimatedWaves/AnimatedWaves.tsx';
@@ -11,7 +12,7 @@ export default function Home() {
   };
 
   return (
-    <div className="flex min-h-dynamic-screen">
+    <Page animation="fade" className="flex min-h-dynamic-screen">
       <div className="flex flex-1 flex-col">
         <div className="flex h-full items-center justify-center p-8">
           <Logo className="w-full max-w-[150px]" />
@@ -26,6 +27,6 @@ export default function Home() {
           </div>
         </div>
       </div>
-    </div>
+    </Page>
   );
 }

@@ -1,6 +1,7 @@
 import { useContext } from 'react';
 import { WaterContextData, WaterContext } from '@/providers/WaterProvider.tsx';
 import { UseCurrentRouteReturn, useCurrentRoute } from '@/hooks/useCurrentRoute.ts';
+import Page from '@/components/Common/Page.tsx';
 import Button from '@/components/Common/Button/Button.tsx';
 import Logo from '@/components/Common/Logo.tsx';
 import ChevronLeft from '@/components/Icons/ChevronLeft.tsx';
@@ -18,7 +19,7 @@ export default function Finished() {
   };
 
   return (
-    <div className="flex min-h-dynamic-screen">
+    <Page animation="fade" className="flex min-h-dynamic-screen">
       <div className="flex flex-1 flex-col items-center justify-center p-4">
         <div className="flex items-center gap-x-2 p-4">
           <Logo className="w-16" />
@@ -37,6 +38,6 @@ export default function Finished() {
         </div>
         <div className="mt-3 p-4 text-center text-brand-900">Your water is ready just the way you ordered it.</div>
       </div>
-    </div>
+    </Page>
   );
 }

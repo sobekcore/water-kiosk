@@ -2,6 +2,7 @@ import { useEffect } from 'react';
 import clsx from 'clsx';
 import { UseCurrentRouteReturn, useCurrentRoute } from '@/hooks/useCurrentRoute.ts';
 import { UseWaterParameterReturn, useWaterParameter } from '@/hooks/useWaterParameter.ts';
+import Page from '@/components/Common/Page.tsx';
 import CustomizeTopPanel from '@/components/CustomizeTopPanel/CustomizeTopPanel.tsx';
 import WaterParameter from '@/components/WaterParameters/WaterParameter.tsx';
 import AnimatedWaterCup from '@/components/AnimatedWaterCup/AnimatedWaterCup.tsx';
@@ -20,7 +21,7 @@ export default function Dispensing() {
   }, []);
 
   return (
-    <div className="flex min-h-dynamic-screen">
+    <Page animation="fade" className="flex min-h-dynamic-screen">
       <div className="flex flex-1 flex-col items-center justify-between p-4">
         <CustomizeTopPanel title="We are making you dreams come true!" />
         <div className="flex w-full justify-center gap-y-8 p-4">
@@ -46,6 +47,6 @@ export default function Dispensing() {
           </WaterParameter>
         </div>
       </div>
-    </div>
+    </Page>
   );
 }
