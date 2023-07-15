@@ -8,6 +8,10 @@
     min-width: 280px;
   }
 
+  img {
+    user-select: none;
+  }
+
   svg.icon {
     fill: currentColor;
     width: 1em;

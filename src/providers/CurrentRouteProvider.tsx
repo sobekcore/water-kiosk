@@ -9,7 +9,9 @@ interface CurrentRouteProviderProps {
 }
 
 export interface CurrentRouteContextData {
+  getLoaded(): boolean;
   getCurrentPath(): string;
+  setLoaded(loaded: boolean): void;
   setCurrentPath(path: string): void;
 }
 
@@ -19,12 +21,19 @@ export default function CurrentRouteProvider({ children }: CurrentRouteProviderP
   const storage: Storage = useStorage();
 
   const [state, setState] = useState<CurrentRouteState>({
+    loaded: false,
     path: storage.get<string>(StorageKey.PATH) ?? '/',
   });
 
   const data: CurrentRouteContextData = {
+    getLoaded(): boolean {
+      return state.loaded;
+    },
     getCurrentPath(): string {
       return state.path;
+    },
+    setLoaded(loaded: boolean): void {
+      setState({ ...state, loaded });
     },
     setCurrentPath(path: string): void {
       setState({ ...state, path });

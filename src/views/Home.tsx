@@ -20,7 +20,7 @@ export default function Home() {
         <div className="flex h-full flex-col">
           <AnimatedWaves />
           <div className="flex flex-grow flex-col items-center justify-end gap-y-8 bg-brand-300 p-8">
-            <Button size="lg" className="bg-white" onClick={handleClick}>
+            <Button size="lg" className="bg-white focus-visible:outline-white" onClick={handleClick}>
               Thirsty?
             </Button>
             <p className="text-center text-brand-900">Drink Water. Stay Healthy.</p>

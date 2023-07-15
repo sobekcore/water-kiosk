@@ -1,5 +1,6 @@
-import { HTMLAttributes } from 'react';
+import { HTMLAttributes, useContext, useEffect } from 'react';
 import { Target, motion } from 'framer-motion';
+import { CurrentRouteContextData, CurrentRouteContext } from '@/providers/CurrentRouteProvider.tsx';
 
 const animations: Record<string, (fromPrev: boolean, toNext: boolean) => Animation> = {
   fade: (): Animation => ({
@@ -70,8 +71,28 @@ interface PageProps extends HTMLAttributes<HTMLDivElement> {
 }
 
 export default function Page({ animation, fromPrev = false, toNext = false, className, children }: PageProps) {
+  const currentRouteContext: CurrentRouteContextData | null = useContext(CurrentRouteContext);
+
+  useEffect((): void => {
+    if (currentRouteContext) {
+      currentRouteContext.setLoaded(true);
+    }
+  }, []);
+
   const getCurrentAnimation = (): Animation => {
+    if (currentRouteContext && !currentRouteContext.getLoaded()) {
+      return animations.fade(fromPrev, toNext);
+    }
+
     return animations[animation](fromPrev, toNext);
+  };
+
+  const handleAnimationStart = (): void => {
+    document.body.classList.add('overflow-hidden');
+  };
+
+  const handleAnimationComplete = (): void => {
+    document.body.classList.remove('overflow-hidden');
   };
 
   return (
@@ -82,6 +103,8 @@ export default function Page({ animation, fromPrev = false, toNext = false, clas
       transition={{ ease: 'linear', duration: 0.4 }}
       style={{ willChange: 'transform, opacity' }}
       className={className}
+      onAnimationStart={handleAnimationStart}
+      onAnimationComplete={handleAnimationComplete}
     >
       {children}
     </motion.div>
