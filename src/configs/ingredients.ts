@@ -14,8 +14,8 @@ export const NULL_INGREDIENT: Ingredient = {
   title: 'Missing',
   image: water,
   cups: 0,
-  bgClassName: 'bg-water-secondary',
-  textClassName: 'text-water-primary',
+  bgClassName: 'bg-gray',
+  textClassName: 'text-brand-900',
 };
 
 export const INGREDIENTS: Ingredient[] = [

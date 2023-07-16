@@ -3,4 +3,6 @@ export enum StorageKey {
   INGREDIENT = 'ingredient',
   ENERGY = 'energy',
   TEMPERATURE = 'temperature',
+  LAST_DATE = 'last-date',
+  CUPS = 'cups',
 }

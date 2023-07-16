@@ -1,38 +1,41 @@
+import { useContext, useEffect, useState } from 'react';
 import clsx from 'clsx';
 import { IngredientId } from '@/enums/ingredient.ts';
+import { CupsContextData, CupsContext } from '@/providers/CupsProvider.tsx';
 
 interface IngredientTileProps {
   id: IngredientId | null;
   title: string;
   image: string;
-  cups: number;
   bgClassName: string;
   textClassName: string;
   onClick(): void;
 }
 
-export default function Ingredient({
-  id,
-  title,
-  image,
-  cups,
-  bgClassName,
-  textClassName,
-  onClick,
-}: IngredientTileProps) {
+export default function Ingredient({ id, title, image, bgClassName, textClassName, onClick }: IngredientTileProps) {
+  const cupsContext: CupsContextData | null = useContext(CupsContext);
+  const [cups, setCups] = useState(0);
+
+  useEffect((): void => {
+    if (cupsContext && id) {
+      setCups(cupsContext.getCups(id));
+    }
+  });
+
   return (
     <button
       data-id={id}
       className={clsx(
         'ingredient flex flex-col items-center justify-center p-4',
         'focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-inset focus-visible:ring-brand-300',
+        !id && 'cursor-not-allowed',
         bgClassName,
       )}
       onClick={onClick}
     >
-      <img src={image} alt={title} />
+      <img src={image} alt={title} className={clsx(!id && 'grayscale')} />
       <h2 className={clsx('text-center text-3xl font-bold', textClassName)}>{title}</h2>
-      <p className={clsx('text-center', textClassName)}>{cups} cups today</p>
+      {id && <p className={clsx('text-center', textClassName)}>{cups} cups today</p>}
     </button>
   );
 }

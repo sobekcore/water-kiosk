@@ -1,6 +1,8 @@
 import { useContext } from 'react';
+import { FINISHED_TIMEOUT } from '@/configs/application.ts';
 import { WaterContextData, WaterContext } from '@/providers/WaterProvider.tsx';
 import { UseCurrentRouteReturn, useCurrentRoute } from '@/hooks/useCurrentRoute.ts';
+import { useTimer } from '@/hooks/useTimer.ts';
 import Page from '@/components/Common/Page.tsx';
 import Button from '@/components/Common/Button/Button.tsx';
 import Logo from '@/components/Common/Logo.tsx';
@@ -17,6 +19,8 @@ export default function Finished() {
 
     currentRoute.navigate('/');
   };
+
+  useTimer(FINISHED_TIMEOUT, handleClick);
 
   return (
     <Page animation="fade" className="flex min-h-dynamic-screen">

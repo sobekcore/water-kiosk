@@ -29,7 +29,6 @@ export default function Ingredients({ ingredients, columns, paddingBottom = fals
           id={ingredient.id}
           title={ingredient.title}
           image={ingredient.image}
-          cups={ingredient.cups}
           bgClassName={ingredient.bgClassName}
           textClassName={ingredient.textClassName}
           onClick={() => handleClick(ingredient)}

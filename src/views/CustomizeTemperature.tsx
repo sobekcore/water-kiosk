@@ -2,12 +2,14 @@ import { useContext } from 'react';
 import { TEMPERATURE, INITIAL_VALUE } from '@/configs/temperature.tsx';
 import { TemperatureValue } from '@/enums/temperature.ts';
 import { WaterContextData, WaterContext } from '@/providers/WaterProvider.tsx';
+import { CupsContextData, CupsContext } from '@/providers/CupsProvider.tsx';
 import { UseCurrentRouteReturn, useCurrentRoute } from '@/hooks/useCurrentRoute.ts';
 import Page from '@/components/Common/Page.tsx';
 import LevelSelectionForm from '@/components/LevelSelection/LevelSelectionForm.tsx';
 
 export default function CustomizeTemperature() {
   const waterContext: WaterContextData | null = useContext(WaterContext);
+  const cupsContext: CupsContextData | null = useContext(CupsContext);
   const currentRoute: UseCurrentRouteReturn = useCurrentRoute();
 
   const handleClickBack = (): void => {
@@ -21,6 +23,10 @@ export default function CustomizeTemperature() {
   const handleClickNext = (temperature: TemperatureValue): void => {
     if (waterContext) {
       waterContext.setTemperature(temperature);
+
+      if (cupsContext) {
+        cupsContext.addCup(waterContext.getIngredient());
+      }
     }
 
     currentRoute.navigate('/dispensing');
