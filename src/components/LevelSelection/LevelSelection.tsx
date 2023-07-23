@@ -27,6 +27,7 @@ export default function LevelSelection<T>({ steps, initialValue, onChange }: Lev
         <Fragment key={index}>
           {index !== 0 && (
             <div
+              data-test="level-selection-connector"
               className={clsx(
                 'level-selection-connector mb-8 h-1.5 w-full max-w-[5rem]',
                 levelSelection.getCurrentStep().color.background,
@@ -34,12 +35,18 @@ export default function LevelSelection<T>({ steps, initialValue, onChange }: Lev
             ></div>
           )}
           <div
+            data-test="level-selection-item"
             className={clsx(
               'level-selection-item relative flex flex-col items-center pb-8',
               step.value === levelSelection.value && 'selected',
             )}
           >
-            <Button size="fab" className="bg-white" onClick={() => handleClick(step.value)}>
+            <Button
+              data-test="level-selection-button"
+              size="fab"
+              className="bg-white"
+              onClick={() => handleClick(step.value)}
+            >
               {step.value === levelSelection.value ? (
                 <Check className="text-lg text-green" />
               ) : (
@@ -47,6 +54,7 @@ export default function LevelSelection<T>({ steps, initialValue, onChange }: Lev
               )}
             </Button>
             <h3
+              data-test="level-selection-label"
               className={clsx(
                 'absolute bottom-0',
                 step.value === levelSelection.value ? 'text-brand-900' : 'text-gray',

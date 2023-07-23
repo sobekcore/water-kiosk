@@ -26,6 +26,7 @@ export default function EvenGrid<T>({ items, nullItem, columns, renderItems, cla
 
   return (
     <div
+      data-test="even-grid"
       className={clsx('grid', className)}
       style={{
         gridTemplateColumns: `repeat(${columns}, 1fr)`,

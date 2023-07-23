@@ -17,6 +17,7 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
 export default function Button({ size = 'md', defaultStyles = true, className, children, ...props }: ButtonProps) {
   return (
     <button
+      data-test="button"
       className={clsx(
         defaultStyles && 'rounded-full text-xl text-brand-300 drop-shadow-lg transition-[filter]',
         defaultStyles && 'hocus:drop-shadow-xl',

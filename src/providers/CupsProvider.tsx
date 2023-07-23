@@ -9,6 +9,7 @@ import { useTimer } from '@/hooks/useTimer.ts';
 
 interface CupsProviderProps {
   children: ReactNode;
+  value?: Partial<CupsState>;
 }
 
 export interface CupsContextData {
@@ -20,12 +21,13 @@ export interface CupsContextData {
 
 export const CupsContext = createContext<CupsContextData | null>(null);
 
-export default function CupsProvider({ children }: CupsProviderProps) {
+export default function CupsProvider({ children, value = {} }: CupsProviderProps) {
   const storage: Storage = useStorage();
 
   const [state, setState] = useState<CupsState>({
     lastDate: new Date(storage.get<string>(StorageKey.LAST_DATE) ?? new Date()),
     cups: storage.get<Record<IngredientId, number>>(StorageKey.CUPS) ?? { ...INITIAL_VALUE },
+    ...value,
   });
 
   const data: CupsContextData = {

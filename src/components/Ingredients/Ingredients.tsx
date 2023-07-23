@@ -25,6 +25,7 @@ export default function Ingredients({ ingredients, columns, paddingBottom = fals
     <>
       {ingredients.map((ingredient: Ingredient, index: number) => (
         <IngredientComponent
+          data-test="ingredient"
           key={index}
           id={ingredient.id}
           title={ingredient.title}
@@ -44,6 +45,7 @@ export default function Ingredients({ ingredients, columns, paddingBottom = fals
 
           return (
             <div
+              data-test="ingredient-padding"
               key={index}
               data-id={ingredient.id}
               className={clsx(
