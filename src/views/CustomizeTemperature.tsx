@@ -1,9 +1,9 @@
 import { useContext } from 'react';
-import { TEMPERATURE, INITIAL_VALUE } from '@/configs/temperature.tsx';
+import { INITIAL_VALUE, TEMPERATURE } from '@/configs/temperature.tsx';
 import { TemperatureValue } from '@/enums/temperature.ts';
-import { WaterContextData, WaterContext } from '@/providers/WaterProvider.tsx';
-import { CupsContextData, CupsContext } from '@/providers/CupsProvider.tsx';
 import { UseCurrentRouteReturn, useCurrentRoute } from '@/hooks/useCurrentRoute.ts';
+import { CupsContext, CupsContextData } from '@/providers/CupsProvider.tsx';
+import { WaterContext, WaterContextData } from '@/providers/WaterProvider.tsx';
 import Page from '@/components/Common/Page.tsx';
 import LevelSelectionForm from '@/components/LevelSelection/LevelSelectionForm.tsx';
 

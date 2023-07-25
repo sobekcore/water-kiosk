@@ -6,7 +6,7 @@ type CallbackFunction = () => void;
 export function useTimer(timeout: TimeoutFunction | number, callback: CallbackFunction): void {
   useEffect((): ReturnType<EffectCallback> => {
     const createTimeout = (): number => {
-      return setTimeout(
+      return window.setTimeout(
         (): void => {
           callback();
           timeoutId = createTimeout();

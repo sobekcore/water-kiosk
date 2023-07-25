@@ -4,8 +4,9 @@ import { CurrentRouteState } from '@/interfaces/current-route.ts';
 import { Storage } from '@/interfaces/storage.ts';
 import { useStorage } from '@/hooks/useStorage.ts';
 
-interface CurrentRouteProviderProps {
+export interface CurrentRouteProviderProps {
   children: ReactNode;
+  value?: Partial<CurrentRouteState>;
 }
 
 export interface CurrentRouteContextData {
@@ -17,12 +18,13 @@ export interface CurrentRouteContextData {
 
 export const CurrentRouteContext = createContext<CurrentRouteContextData | null>(null);
 
-export default function CurrentRouteProvider({ children }: CurrentRouteProviderProps) {
+export default function CurrentRouteProvider({ children, value = {} }: CurrentRouteProviderProps) {
   const storage: Storage = useStorage();
 
   const [state, setState] = useState<CurrentRouteState>({
     loaded: false,
     path: storage.get<string>(StorageKey.PATH) ?? '/',
+    ...value,
   });
 
   const data: CurrentRouteContextData = {

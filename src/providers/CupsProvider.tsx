@@ -1,7 +1,7 @@
 import { ReactNode, createContext, useEffect, useState } from 'react';
 import { INITIAL_VALUE } from '@/configs/cups.ts';
-import { StorageKey } from '@/enums/storage.ts';
 import { IngredientId } from '@/enums/ingredient.ts';
+import { StorageKey } from '@/enums/storage.ts';
 import { CupsState } from '@/interfaces/cups.ts';
 import { Storage } from '@/interfaces/storage.ts';
 import { useStorage } from '@/hooks/useStorage.ts';
@@ -9,6 +9,7 @@ import { useTimer } from '@/hooks/useTimer.ts';
 
 interface CupsProviderProps {
   children: ReactNode;
+  value?: Partial<CupsState>;
 }
 
 export interface CupsContextData {
@@ -20,12 +21,13 @@ export interface CupsContextData {
 
 export const CupsContext = createContext<CupsContextData | null>(null);
 
-export default function CupsProvider({ children }: CupsProviderProps) {
+export default function CupsProvider({ children, value = {} }: CupsProviderProps) {
   const storage: Storage = useStorage();
 
   const [state, setState] = useState<CupsState>({
     lastDate: new Date(storage.get<string>(StorageKey.LAST_DATE) ?? new Date()),
     cups: storage.get<Record<IngredientId, number>>(StorageKey.CUPS) ?? { ...INITIAL_VALUE },
+    ...value,
   });
 
   const data: CupsContextData = {
@@ -59,7 +61,7 @@ export default function CupsProvider({ children }: CupsProviderProps) {
 
     const sameYear: boolean = now.getFullYear() === lastDate.getFullYear();
     const sameMonth: boolean = now.getMonth() === lastDate.getMonth();
-    const sameDay: boolean = now.getDay() === lastDate.getDay();
+    const sameDay: boolean = now.getDate() === lastDate.getDate();
 
     if (!sameYear || !sameMonth || !sameDay) {
       data.clearCups();

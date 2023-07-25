@@ -1,8 +1,8 @@
 import { UseCurrentRouteReturn, useCurrentRoute } from '@/hooks/useCurrentRoute.ts';
-import Page from '@/components/Common/Page.tsx';
+import AnimatedWaves from '@/components/AnimatedWaves/AnimatedWaves.tsx';
 import Button from '@/components/Common/Button/Button.tsx';
 import Logo from '@/components/Common/Logo.tsx';
-import AnimatedWaves from '@/components/AnimatedWaves/AnimatedWaves.tsx';
+import Page from '@/components/Common/Page.tsx';
 
 export default function Home() {
   const currentRoute: UseCurrentRouteReturn = useCurrentRoute();

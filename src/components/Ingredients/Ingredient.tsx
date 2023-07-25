@@ -1,7 +1,7 @@
 import { useContext, useEffect, useState } from 'react';
 import clsx from 'clsx';
 import { IngredientId } from '@/enums/ingredient.ts';
-import { CupsContextData, CupsContext } from '@/providers/CupsProvider.tsx';
+import { CupsContext, CupsContextData } from '@/providers/CupsProvider.tsx';
 
 interface IngredientTileProps {
   id: IngredientId | null;
@@ -24,6 +24,7 @@ export default function Ingredient({ id, title, image, bgClassName, textClassNam
 
   return (
     <button
+      data-test="ingredient"
       data-id={id}
       className={clsx(
         'ingredient flex flex-col items-center justify-center p-4',
@@ -33,9 +34,15 @@ export default function Ingredient({ id, title, image, bgClassName, textClassNam
       )}
       onClick={onClick}
     >
-      <img src={image} alt={title} className={clsx(!id && 'grayscale')} />
-      <h2 className={clsx('text-center text-3xl font-bold', textClassName)}>{title}</h2>
-      {id && <p className={clsx('text-center', textClassName)}>{cups} cups today</p>}
+      <img data-test="ingredient-image" src={image} alt={title} className={clsx(!id && 'grayscale')} />
+      <h2 data-test="ingredient-title" className={clsx('text-center text-3xl font-bold', textClassName)}>
+        {title}
+      </h2>
+      {id && (
+        <p data-test="ingredient-cups" className={clsx('text-center', textClassName)}>
+          {cups} cups today
+        </p>
+      )}
     </button>
   );
 }

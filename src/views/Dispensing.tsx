@@ -2,10 +2,10 @@ import { useEffect } from 'react';
 import clsx from 'clsx';
 import { UseCurrentRouteReturn, useCurrentRoute } from '@/hooks/useCurrentRoute.ts';
 import { UseWaterParameterReturn, useWaterParameter } from '@/hooks/useWaterParameter.ts';
+import AnimatedWaterCup from '@/components/AnimatedWaterCup/AnimatedWaterCup.tsx';
 import Page from '@/components/Common/Page.tsx';
 import CustomizeTopPanel from '@/components/CustomizeTopPanel/CustomizeTopPanel.tsx';
 import WaterParameter from '@/components/WaterParameters/WaterParameter.tsx';
-import AnimatedWaterCup from '@/components/AnimatedWaterCup/AnimatedWaterCup.tsx';
 
 export default function Dispensing() {
   const currentRoute: UseCurrentRouteReturn = useCurrentRoute();

@@ -1,7 +1,12 @@
+const sortImportsSettings = {
+  ignoreDeclarationSort: true,
+};
+
 module.exports = {
   env: {
     browser: true,
     es2020: true,
+    node: true,
   },
   extends: [
     'eslint:recommended',
@@ -19,5 +24,6 @@ module.exports = {
     '@typescript-eslint/no-inferrable-types': 'off',
     '@typescript-eslint/no-empty-interface': 'off',
     'react-refresh/only-export-components': 'off',
+    'sort-imports': ['error', sortImportsSettings],
   },
 };
