@@ -1,8 +1,8 @@
 import { useContext } from 'react';
 import { ENERGY, INITIAL_VALUE } from '@/configs/energy.tsx';
 import { EnergyValue } from '@/enums/energy.ts';
-import { WaterContextData, WaterContext } from '@/providers/WaterProvider.tsx';
 import { UseCurrentRouteReturn, useCurrentRoute } from '@/hooks/useCurrentRoute.ts';
+import { WaterContext, WaterContextData } from '@/providers/WaterProvider.tsx';
 import Page from '@/components/Common/Page.tsx';
 import LevelSelectionForm from '@/components/LevelSelection/LevelSelectionForm.tsx';
 

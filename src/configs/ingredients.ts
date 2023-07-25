@@ -1,8 +1,8 @@
 import { IngredientId } from '@/enums/ingredient.ts';
 import { Ingredient } from '@/interfaces/ingredient.ts';
+import coconut from '@/assets/coconut.png';
 import cucumber from '@/assets/cucumber.png';
 import mint from '@/assets/mint.png';
-import coconut from '@/assets/coconut.png';
 import water from '@/assets/water.png';
 
 export const INITIAL_VALUE: IngredientId = IngredientId.NO_FLAVOR;

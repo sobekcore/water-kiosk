@@ -1,5 +1,5 @@
-import { RenderResult, render, fireEvent } from '@testing-library/react';
 import { Mock, beforeEach, vitest } from 'vitest';
+import { RenderResult, fireEvent, render } from '@testing-library/react';
 import { MOCK_ICON } from '@test/mocks/components/Icon.mock.tsx';
 import { mockLevelSelectionStep } from '@test/mocks/objects/level-selection.mock.tsx';
 import { UnitTestException } from '@/exceptions/unit-test-exception.ts';
@@ -37,16 +37,16 @@ describe('LevelSelectionForm', () => {
     );
   });
 
-  it('should render level-selection-form-panel', () => {
-    const levelSelectionFormPanel: HTMLElement = component.getByTestId('level-selection-form-panel');
-
-    expect(levelSelectionFormPanel).toBeInTheDocument();
-  });
-
   it('should render button prop', () => {
     const levelSelectionFormButton: HTMLElement = component.getByTestId('level-selection-form-button');
 
     expect(levelSelectionFormButton).toHaveTextContent(MOCK_BUTTON);
+  });
+
+  it('should render level-selection-form-panel', () => {
+    const levelSelectionFormPanel: HTMLElement = component.getByTestId('level-selection-form-panel');
+
+    expect(levelSelectionFormPanel).toBeInTheDocument();
   });
 
   it('should render level-selection-form-icon', () => {
@@ -92,7 +92,7 @@ describe('LevelSelectionForm', () => {
     expect(MOCK_HANDLE_CLICK_BACK).toHaveBeenCalledTimes(1);
   });
 
-  it('should call onClickBack on level-selection-form-back-button click', () => {
+  it('should call onClickNext on level-selection-form-next-button click', () => {
     const levelSelectionFormNextButton: HTMLElement = component.getByTestId('level-selection-form-next-button');
     fireEvent.click(levelSelectionFormNextButton);
 

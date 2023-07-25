@@ -1,5 +1,5 @@
 import { Mock, beforeEach, vitest } from 'vitest';
-import { RenderResult, cleanup, render, fireEvent } from '@testing-library/react';
+import { RenderResult, cleanup, fireEvent, render } from '@testing-library/react';
 import { mockCups } from '@test/mocks/objects/cups.mock.ts';
 import { IngredientId } from '@/enums/ingredient.ts';
 import CupsProvider from '@/providers/CupsProvider.tsx';
@@ -56,7 +56,7 @@ describe('Ingredient', () => {
     expect(ingredientCups).toHaveTextContent(`${MOCK_CUPS}`);
   });
 
-  it('should not render cups when id is empty', () => {
+  it('should not render ingredient-cups when id is empty', () => {
     cleanup();
     component = render(
       <Ingredient

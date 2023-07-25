@@ -1,5 +1,5 @@
 import { Mock } from 'vitest';
-import { RenderResult, cleanup, render, fireEvent } from '@testing-library/react';
+import { RenderResult, cleanup, fireEvent, render } from '@testing-library/react';
 import Button from '@/components/Common/Button/Button.tsx';
 
 const MOCK_CONTENT: string = 'Mock Content';

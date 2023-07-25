@@ -1,11 +1,11 @@
 import clsx from 'clsx';
 import { LevelSelectionStep } from '@/interfaces/level-selection.ts';
 import { UseLevelSelectionReturn, useLevelSelection } from '@/hooks/useLevelSelection.ts';
-import CustomizeTopPanel from '@/components/CustomizeTopPanel/CustomizeTopPanel.tsx';
-import LevelSelection from '@/components/LevelSelection/LevelSelection.tsx';
 import Button from '@/components/Common/Button/Button.tsx';
+import CustomizeTopPanel from '@/components/CustomizeTopPanel/CustomizeTopPanel.tsx';
 import ArrowRight from '@/components/Icons/ArrowRight.tsx';
 import CircleChevronLeft from '@/components/Icons/CircleChevronLeft.tsx';
+import LevelSelection from '@/components/LevelSelection/LevelSelection.tsx';
 
 interface LevelSelectionFormProps<T> {
   steps: LevelSelectionStep<T>[];

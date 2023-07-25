@@ -1,7 +1,7 @@
 import { ReactNode, createContext, useEffect, useState } from 'react';
 import { INITIAL_VALUE } from '@/configs/cups.ts';
-import { StorageKey } from '@/enums/storage.ts';
 import { IngredientId } from '@/enums/ingredient.ts';
+import { StorageKey } from '@/enums/storage.ts';
 import { CupsState } from '@/interfaces/cups.ts';
 import { Storage } from '@/interfaces/storage.ts';
 import { useStorage } from '@/hooks/useStorage.ts';
@@ -61,7 +61,7 @@ export default function CupsProvider({ children, value = {} }: CupsProviderProps
 
     const sameYear: boolean = now.getFullYear() === lastDate.getFullYear();
     const sameMonth: boolean = now.getMonth() === lastDate.getMonth();
-    const sameDay: boolean = now.getDay() === lastDate.getDay();
+    const sameDay: boolean = now.getDate() === lastDate.getDate();
 
     if (!sameYear || !sameMonth || !sameDay) {
       data.clearCups();

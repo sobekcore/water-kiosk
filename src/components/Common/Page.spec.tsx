@@ -1,4 +1,4 @@
-import { RenderResult, render, cleanup } from '@testing-library/react';
+import { RenderResult, cleanup, render } from '@testing-library/react';
 import { ANIMATION } from '@/configs/animation.ts';
 import { Animation } from '@/interfaces/animation.ts';
 import CurrentRouteProvider from '@/providers/CurrentRouteProvider.tsx';

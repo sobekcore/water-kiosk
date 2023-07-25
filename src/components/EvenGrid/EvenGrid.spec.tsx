@@ -1,11 +1,11 @@
-import { RenderResult, render } from '@testing-library/react';
 import { beforeEach } from 'vitest';
+import { RenderResult, render } from '@testing-library/react';
+import MockEvenGridItems from '@test/mocks/components/EvenGrid.mock.tsx';
 import { MockEvenGridItem } from '@test/mocks/interfaces/even-grid.mock.ts';
 import { mockEvenGridItem } from '@test/mocks/objects/even-grid.mock.ts';
-import MockEvenGridItems from '@test/mocks/components/EvenGrid.mock.tsx';
 import EvenGrid from '@/components/EvenGrid/EvenGrid.tsx';
 
-const MOCK_ITEMS: MockEvenGridItem[] = [mockEvenGridItem(1)];
+const MOCK_ITEMS: MockEvenGridItem[] = [mockEvenGridItem(1), mockEvenGridItem(2)];
 const MOCK_NULL_ITEM: MockEvenGridItem = mockEvenGridItem(null);
 const MOCK_COLUMNS: number = 1;
 

@@ -1,5 +1,5 @@
 import { Mock, beforeEach, vitest } from 'vitest';
-import { RenderResult, render, fireEvent } from '@testing-library/react';
+import { RenderResult, fireEvent, render } from '@testing-library/react';
 import { mockLevelSelectionStep } from '@test/mocks/objects/level-selection.mock.tsx';
 import { UnitTestException } from '@/exceptions/unit-test-exception.ts';
 import { LevelSelectionStep } from '@/interfaces/level-selection.ts';

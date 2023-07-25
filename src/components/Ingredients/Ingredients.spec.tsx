@@ -1,12 +1,12 @@
-import { beforeEach, expect, Mock, vitest } from 'vitest';
-import { cleanup, fireEvent, render, RenderResult } from '@testing-library/react';
+import { Mock, beforeEach, expect, vitest } from 'vitest';
+import { RenderResult, cleanup, fireEvent, render } from '@testing-library/react';
 import { mockIngredient } from '@test/mocks/objects/ingredient.mock.ts';
 import { IngredientId } from '@/enums/ingredient.ts';
 import { Ingredient } from '@/interfaces/ingredient.ts';
 import Ingredients from '@/components/Ingredients/Ingredients.tsx';
 
-const MOCK_INGREDIENTS: Ingredient[] = [mockIngredient(IngredientId.NO_FLAVOR)];
-const MOCK_NULL_INGREDIENTS: Ingredient[] = [mockIngredient(null)];
+const MOCK_INGREDIENTS: Ingredient[] = [mockIngredient(IngredientId.NO_FLAVOR), mockIngredient(IngredientId.CUCUMBER)];
+const MOCK_NULL_INGREDIENTS: Ingredient[] = [mockIngredient(null), mockIngredient(null)];
 const MOCK_COLUMNS: number = 1;
 const MOCK_HANDLE_CLICK: Mock = vitest.fn();
 
@@ -49,7 +49,7 @@ describe('Ingredients', () => {
     }
   });
 
-  it('should call onClick function on button click', () => {
+  it('should call onClick function on ingredient click', () => {
     const ingredientAll: HTMLElement[] = component.getAllByTestId('ingredient');
 
     for (const ingredient of ingredientAll) {
@@ -59,7 +59,7 @@ describe('Ingredients', () => {
     expect(MOCK_HANDLE_CLICK).toHaveBeenCalledTimes(ingredientAll.length);
   });
 
-  it('should not call onClick function on button click when id is empty', () => {
+  it('should not call onClick function on ingredient click when id is empty', () => {
     cleanup();
     component = render(
       <Ingredients ingredients={MOCK_NULL_INGREDIENTS} columns={MOCK_COLUMNS} onClick={MOCK_HANDLE_CLICK} />,

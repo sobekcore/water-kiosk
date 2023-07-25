@@ -1,14 +1,14 @@
 import { useContext } from 'react';
-import { INGREDIENTS } from '@/configs/ingredients.ts';
 import { ENERGY } from '@/configs/energy.tsx';
+import { INGREDIENTS } from '@/configs/ingredients.ts';
 import { TEMPERATURE } from '@/configs/temperature.tsx';
 import { ComponentException } from '@/exceptions/component-exception.ts';
 import { EnergyValue } from '@/enums/energy.ts';
+import { IngredientId } from '@/enums/ingredient.ts';
 import { TemperatureValue } from '@/enums/temperature.ts';
 import { Ingredient } from '@/interfaces/ingredient.ts';
 import { LevelSelectionStep } from '@/interfaces/level-selection.ts';
-import { WaterContextData, WaterContext } from '@/providers/WaterProvider.tsx';
-import { IngredientId } from '@/enums/ingredient.ts';
+import { WaterContext, WaterContextData } from '@/providers/WaterProvider.tsx';
 
 export interface UseWaterParameterReturn {
   getIngredientParameter(): Ingredient;

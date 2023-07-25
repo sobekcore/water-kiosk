@@ -4,7 +4,7 @@ import { CurrentRouteState } from '@/interfaces/current-route.ts';
 import { Storage } from '@/interfaces/storage.ts';
 import { useStorage } from '@/hooks/useStorage.ts';
 
-interface CurrentRouteProviderProps {
+export interface CurrentRouteProviderProps {
   children: ReactNode;
   value?: Partial<CurrentRouteState>;
 }

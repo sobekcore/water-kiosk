@@ -1,7 +1,7 @@
 import { useContext, useEffect, useState } from 'react';
 import clsx from 'clsx';
 import { IngredientId } from '@/enums/ingredient.ts';
-import { CupsContextData, CupsContext } from '@/providers/CupsProvider.tsx';
+import { CupsContext, CupsContextData } from '@/providers/CupsProvider.tsx';
 
 interface IngredientTileProps {
   id: IngredientId | null;

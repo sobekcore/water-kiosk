@@ -2,7 +2,7 @@ import { HTMLAttributes, useContext, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { ANIMATION } from '@/configs/animation.ts';
 import { Animation } from '@/interfaces/animation.ts';
-import { CurrentRouteContextData, CurrentRouteContext } from '@/providers/CurrentRouteProvider.tsx';
+import { CurrentRouteContext, CurrentRouteContextData } from '@/providers/CurrentRouteProvider.tsx';
 
 interface PageProps extends HTMLAttributes<HTMLDivElement> {
   animation: keyof typeof ANIMATION;
