@@ -8,7 +8,7 @@ Designs used in this project are very heavily inspired by designs from [Charlie 
 
 Example Dribble shots:
 * [https://dribbble.com/shots/3523822-Dropwater-iPad-Kiosk](https://dribbble.com/shots/3523822-Dropwater-iPad-Kiosk])
-* [https://dribbble.com/shots/3579082-Dw-Kiosk](https://dribbble.com/shots/3523822-Dropwater-iPad-Kiosk])
+* [https://dribbble.com/shots/3579082-Dw-Kiosk](https://dribbble.com/shots/3579082-Dw-Kiosk])
 
 ## Legal Considerations
 This project is non-commercial, and isn't affiliated with Dropwater. It's just a project meant to be tinkered on with some exciting technologies.

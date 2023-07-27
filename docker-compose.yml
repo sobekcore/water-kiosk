@@ -1,0 +1,14 @@
+version: "3.8"
+
+services:
+  client:
+    build:
+      context: ./client
+      args:
+        DOCKER_CLIENT_ENV: ${DOCKER_CLIENT_ENV:-prod}
+    ports:
+      - "8080:8080"
+    volumes:
+      - ./client:/home/node/app
+      - /home/node/app/node_modules
+      - /home/node/app/dist

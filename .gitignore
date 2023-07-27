@@ -1,9 +1,5 @@
-# Compiled output
-/node_modules
-/dist
-
-# Tests
-/coverage
+# Environment
+/.env
 
 # Configs
 /.idea
