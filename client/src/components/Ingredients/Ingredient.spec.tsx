@@ -19,14 +19,16 @@ describe('Ingredient', () => {
 
   beforeEach(() => {
     component = render(
-      <Ingredient
-        id={MOCK_ID}
-        title={MOCK_TITLE}
-        image={MOCK_IMAGE}
-        bgClassName={MOCK_BG_CLASS_NAME}
-        textClassName={MOCK_TEXT_CLASS_NAME}
-        onClick={MOCK_HANDLE_CLICK}
-      />,
+      <CupsProvider value={{ cups: mockCups() }}>
+        <Ingredient
+          id={MOCK_ID}
+          title={MOCK_TITLE}
+          image={MOCK_IMAGE}
+          bgClassName={MOCK_BG_CLASS_NAME}
+          textClassName={MOCK_TEXT_CLASS_NAME}
+          onClick={MOCK_HANDLE_CLICK}
+        />
+      </CupsProvider>,
     );
   });
 
@@ -59,14 +61,16 @@ describe('Ingredient', () => {
   it('should not render ingredient-cups when id is empty', () => {
     cleanup();
     component = render(
-      <Ingredient
-        id={null}
-        title={MOCK_TITLE}
-        image={MOCK_IMAGE}
-        bgClassName={MOCK_BG_CLASS_NAME}
-        textClassName={MOCK_TEXT_CLASS_NAME}
-        onClick={MOCK_HANDLE_CLICK}
-      />,
+      <CupsProvider value={{ cups: mockCups() }}>
+        <Ingredient
+          id={null}
+          title={MOCK_TITLE}
+          image={MOCK_IMAGE}
+          bgClassName={MOCK_BG_CLASS_NAME}
+          textClassName={MOCK_TEXT_CLASS_NAME}
+          onClick={MOCK_HANDLE_CLICK}
+        />
+      </CupsProvider>,
     );
 
     const ingredientCups: HTMLElement | null = component.queryByTestId('ingredient-cups');

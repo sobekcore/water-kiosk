@@ -19,7 +19,7 @@ WORKDIR /home/node/app
 
 # Install necessary npm dependencies
 RUN npm install -g serve
-RUN npm ci
+RUN sh .docker/install ${ENVIRONMENT}
 
 # Build application for production with minification
 RUN npm run build

@@ -1,0 +1,18 @@
+#!/bin/bash
+
+ENVIRONMENT=$1
+
+if [ -z "$ENVIRONMENT" ]; then
+  echo "Required argument is not passed to the script"
+  exit 1
+fi
+
+if [ "$ENVIRONMENT" = "dev" ]; then
+  cd /home/node/app
+  npm ci
+fi
+
+if [ "$ENVIRONMENT" = "prod" ]; then
+  cd /home/node/app
+  npm ci --only=prod
+fi

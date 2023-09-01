@@ -1,9 +1,11 @@
 import { useContext, useEffect, useState } from 'react';
 import clsx from 'clsx';
 import { IngredientId } from '@/enums/ingredient.ts';
+import { UseCupsReturn, useCups } from '@/hooks/useCups.ts';
 import { CupsContext, CupsContextData } from '@/providers/CupsProvider.tsx';
+import GlassFilled from '@/components/Icons/GlassFilled.tsx';
 
-interface IngredientTileProps {
+interface IngredientProps {
   id: IngredientId | null;
   title: string;
   image: string;
@@ -12,13 +14,15 @@ interface IngredientTileProps {
   onClick(): void;
 }
 
-export default function Ingredient({ id, title, image, bgClassName, textClassName, onClick }: IngredientTileProps) {
+export default function Ingredient({ id, title, image, bgClassName, textClassName, onClick }: IngredientProps) {
   const cupsContext: CupsContextData | null = useContext(CupsContext);
-  const [cups, setCups] = useState(0);
+  const cups: UseCupsReturn = useCups(id);
+
+  const [cupsCount, setCupsCount] = useState<number>(0);
 
   useEffect((): void => {
     if (cupsContext && id) {
-      setCups(cupsContext.getCups(id));
+      setCupsCount(cupsContext.getCups(id));
     }
   });
 
@@ -39,9 +43,10 @@ export default function Ingredient({ id, title, image, bgClassName, textClassNam
         {title}
       </h2>
       {id && (
-        <p data-test="ingredient-cups" className={clsx('text-center', textClassName)}>
-          {cups} cups today
-        </p>
+        <div data-test="ingredient-cups" className={clsx('flex items-center gap-1', textClassName)}>
+          <GlassFilled fill={cups.getCupsPercentage()} className="text-xl" />
+          <p>{cupsCount} cups today</p>
+        </div>
       )}
     </button>
   );

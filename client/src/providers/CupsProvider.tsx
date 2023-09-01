@@ -7,13 +7,14 @@ import { Storage } from '@/interfaces/storage.ts';
 import { useStorage } from '@/hooks/useStorage.ts';
 import { useTimer } from '@/hooks/useTimer.ts';
 
-interface CupsProviderProps {
+export interface CupsProviderProps {
   children: ReactNode;
   value?: Partial<CupsState>;
 }
 
 export interface CupsContextData {
   getLastDate(): Date;
+  getAllCups(): Record<IngredientId, number>;
   getCups(ingredient: IngredientId): number;
   addCup(ingredient: IngredientId): void;
   clearCups(): void;
@@ -33,6 +34,9 @@ export default function CupsProvider({ children, value = {} }: CupsProviderProps
   const data: CupsContextData = {
     getLastDate(): Date {
       return state.lastDate;
+    },
+    getAllCups(): Record<IngredientId, number> {
+      return state.cups;
     },
     getCups(ingredient: IngredientId): number {
       return state.cups[ingredient];
